@@ -41,7 +41,7 @@ In summary, each row of data pertains to a single observation across the four li
 
 <br/>
 
-| <img src="JPEGs/iris_species.jpg"  width="600"/>|
+| <img src="Images/iris_species.jpg"  width="600"/>|
 |----------|
 | Fig 1. Iris Species [2]|
 
