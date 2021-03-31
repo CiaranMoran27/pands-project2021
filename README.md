@@ -17,6 +17,7 @@
 ## Table Of Contents 
 ### 1. Introduction 
 &emsp; 1.1 Describing the Data Set <br>
+&emsp; 1.2 History of the Iris Data Set**
 ### 2. Investigation
 ### 3. Discussion 
 ### 4. Summary 
