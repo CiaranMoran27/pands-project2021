@@ -31,36 +31,20 @@
 <br/>
 
 ### 1. Introduction 
-&emsp; **1.1 Describing the Data Set**
+&nbsp;**1.1 Project Outline and Objectives**
 
-The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[5]. 
-In summary, each row of data pertains to a single observation across the four listed anatomical dimensional attributes for a given species of iris.
 
-**Dataset Attributes:**
- - Sepal length in cm
- - Sepal width in cm
- - Petal length in cm
- - Petal width in cm
- - Species (see Fig 1.)
-
-<br/>
-
-| <img src="Images/iris_species.jpg"  width="600"/>|
-|----------|
-| Fig 1. Iris Species [2]|
+This Repository contains all the files relevant to my 2021 Project as part of my Programming and Scripting module. The project investigates the famous Fisher Iris Data set and applies a python-based methodology to explore the data. This README file contains of Summary of my findings.
+The projects main aims are to achieve the following through incremental progress:
+- Research the data set online and detail findings.
+- Download the data set and add it to my repository. 
+- Write a python program (analysis.py) that contains functions that can do the following:
+  - Output a summary of each variable to a single text file.
+  - Save a histogram of each variable to png files.
+  - Save scatter plots of each pair of variables to png files.
 
 <br/>
-
-&emsp; **1.2 History of the Iris Data Set**
-
-The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [1]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
 <br/>
-Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [4]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” [3]. In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [1]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
-<br/>
-
-| <img src="Images/Ronald_Fisher.jpg"  width="250"/>|
-|----------|
-| Fig 2. Ronald Fisher [6]|
 
 <br/>
 <br/>
