@@ -107,3 +107,9 @@ This project will further explore and test supervised machine learning classific
 [4]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica,<br/> **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>**<br/>
 [5]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.names>**<br/>
 [6]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>**<br/>
+[X] Sharma, R, 2019, Gaussian distribution: Why is it important in data science and machine learning?, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>**
+[X] Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>**
+[X] Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021, <br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>**
+[X] Brownlee, L, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021, <br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/ >**
+[X]: Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html.
+[X] Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021, <br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>**
