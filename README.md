@@ -15,13 +15,16 @@
 <br/>
 
 ## Table Of Contents 
-### 1. Introduction 
-&emsp; 1.1 Describing the Data Set <br>
-&emsp; 1.2 History of the Iris Data Set**
-### 2. Investigation
-### 3. Discussion 
-### 4. Summary 
-### 5. References 
+### 1. Introduction
+&emsp; 1.1 Project Outline and Objectives<br> 
+### 2. Background
+&emsp; 2.1 Describing the Data Set <br>
+&emsp; 2.2 History of the Data Set <br>
+&emsp; 2.2 Linear Discriminant Analysis and Machine learning <br>
+### 3. Investigation
+### 4. Discussion 
+### 5. Summary 
+### 6. References 
 
 
 <br/>
