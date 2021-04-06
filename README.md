@@ -45,11 +45,59 @@ The projects main aims are to achieve the following through incremental progress
 
 <br/>
 <br/>
+### 2. Background
+&nbsp;**2.1 Describing the Data Set**
+
+The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[5]. 
+In summary, each row of data pertains to a single observation across the four listed anatomical dimensional attributes for a given species of iris.
+
+&nbsp;**Dataset Attributes:**
+   - Sepal length in cm
+   - Sepal width in cm
+   - Petal length in cm
+   - Petal width in cm
+   - Species (see Fig 1.)
+
+<br/>
+
+| <img src="Images/iris_species.jpg"  width="600"/>|
+|----------|
+| Fig 1. Iris Species [2]|
 
 <br/>
 <br/>
 
+&nbsp;**2.2 History of the Iris Data Set**
 
+The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [1]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
+<br/>
+Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [4]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” [3]. In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [1]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
+<br/>
+
+| <img src="Images/Ronald_Fisher.jpg"  width="250"/>|
+|----------|
+| Fig 2. Ronald Fisher [6]|
+
+<br/>
+<br/>
+
+&nbsp;**2.3 Linear Discriminant Analysis and Machine learning**<br/>
+
+Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [Gonzalez, J, 2018] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions which are described by Brownlee (2016):
+1.	The data distribution is Gaussian, i.e is shaped like a bell curve.
+2.	Each class has the same covariance matrix.
+
+This model’s first assumption can be successfully applied to many data sets as Gaussian distributions appear regularly in the real-world data. This was explained well by Sharma (2019) where he described how larger data sets with finite variances and independent feature probabilities will have a data distribution that favours the bell curve shape [Sharma, R, 2019]. When considering the second assumption it its important to note that covariance indicates the direction of the linear relationship between variables [Janakiev, N, 2018] and is used as a measure of how two random variables vary together. If one assumes that each species in the Iris data set has the same covariance matrix, they assume that the linear correlation between randomly selected variables in a given species is equal for the same variables in all other species. 
+
+It is important to understand the implications of choosing a particular model and the potential for inaccurate results if the model assumptions are not representative of the data set. Today the advances in Machine Learning provides us an opportunity to test and alter multiple data analysis library models to our needs. As described by Wakefield (2018), “machine learning uses programmed algorithms that receive and analyze input data to predict output values within an acceptable range. As new data is fed to these algorithms, they learn and optimize their operations to improve performance, developing intelligence over time”. Machine learning is broken into two main categories, supervised and unsupervised which are explained in points 1 and 2 below:(Soni 2018).
+
+1.	Unsupervised learning deals with the inherent structure of the data without using labels, an example would be a clustering algorithm that can segregate datapoints into objects based on their relative distance to other datapoints. 
+2.	Supervised learning is typically used for classification problems, when one wants to map the inputs to a desired labelled output, or regression when one wants to map the input to a continuous output . 
+
+This project will further explore and test supervised machine learning classification models on the Iris Dataset.
+
+<br/>
+<br/>
 
 
 ### 5. Reference:
