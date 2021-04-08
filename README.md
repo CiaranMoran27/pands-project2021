@@ -20,8 +20,9 @@
 ### 2. Background
 &emsp; 2.1 Describing the Data Set <br>
 &emsp; 2.2 History of the Data Set <br>
-&emsp; 2.2 Linear Discriminant Analysis and Machine learning <br>
+&emsp; 2.3 Linear Discriminant Analysis and Machine learning <br>
 ### 3. Investigation
+&emsp; 3.1 Getting Started <br>
 ### 4. Discussion 
 ### 5. Summary 
 ### 6. References 
@@ -44,9 +45,9 @@ The projects main aims are to achieve the following through incremental progress
   - Save scatter plots of each pair of variables to png files.
 
 <br/>
-<br/>
+
 ### 2. Background
-&nbsp;**2.1 Describing the Data Set**
+&nbsp; **2.1 Describing the Data Set**
 
 The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[5]. 
 In summary, each row of data pertains to a single observation across the four listed anatomical dimensional attributes for a given species of iris.
@@ -98,6 +99,42 @@ This project will further explore and test supervised machine learning classific
 
 <br/>
 <br/>
+
+### 3. Investigation
+&nbsp;**3.1 Getting Started**
+
+This Section details the downloads, modules, tools, libraries and dependencies for this project.
+<br/>
+
+- Visual Studio Code 1.55.0 was the chosen source code editor. <br/>
+  - Downloaded here (**<https://code.visualstudio.com/download>**).
+
+- Python 3.8.5 was used as the programming language for this data analysis project. <br/>
+  - Downloaded here (**<https://www.python.org/downloads/>**).
+
+- Anacondas was downloaded for its many useful libraries included in the package. <br/>
+  - Download here (**<https://docs.anaconda.com/anaconda/install/>**).<br/>
+    Main libraries used: <br/>
+    - numpy 1.19.2 <br/>
+    - pandas 1.1.3 <br/>
+    - matplotlib 3.3.2 <br/>
+    - seaborn 0.11.0 <br/>
+
+- Fisher Iris Dataset:
+  - Downloaded here (**<http://archive.ics.uci.edu/ml/datasets/Iris>**). <br/>
+  - Saved as ‘’Iris_Data_Set.txt” in the same directory as Analysis.py module. <br/>
+
+- Analysis.py<br/>
+  - This Python module contains the source code used to generate a Summary text file and output plots. <br/>
+  - It Conisits of numerous functions that will be referenced throughout this investigation. <br/>
+  - Code References will be located in the module and donted via [*1]...[*n...] etc.. <br/>
+  - The module makes directory hierarchy assumptions relative to its location for reading the Iris dataset / outputing plots. <br/>
+  - Note: For best results and ease of use clone repository as described here: <br/>(**<https://docs.github.com/en/github/creating-cloning>**).
+
+
+<br/>
+<br/>
+
 
 
 ### 5. Reference:
