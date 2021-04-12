@@ -8,7 +8,7 @@ os.chdir(os.path.dirname(__file__))                                             
 
 
 def read_iris_dataset():
-    iris_data_file = 'Iris_Data_Set.txt'
+    iris_data_file = 'iris_data_set.txt'
     iris_dataframe = pd.read_csv(iris_data_file, delimiter = ',', header = None)                              # read in Iris Dataset via Pandas Library
     iris_dataframe.columns =['sepal_length', 'sepal_width', 'petal_length', 'petal_width','species']          # add columns headers
     return iris_dataframe
