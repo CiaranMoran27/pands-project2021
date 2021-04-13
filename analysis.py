@@ -37,3 +37,19 @@ def summary_variables():
     return shape, data_types, null_count,species_count, integer_check, desc_all_species, correlation
     
 summary_tuple = summary_variables()   
+
+
+def write_summary_variables(summary_tuple):
+    with open('summary_file.txt', 'w') as f:
+        
+        skip_three_lines = ('\n' * 3)
+        f.write('Fisher Iris Dataset Summary' + skip_three_lines)
+        f.write('Number of columns = {} \nNumber of rows = {}{}'.format(summary_tuple[0][0],summary_tuple[0][1],skip_three_lines)) 
+        f.write('Column name:  Data Types: \n'+ str(summary_tuple[1]) + skip_three_lines) 
+        f.write('Column name:  Null Count: : \n'+ str(summary_tuple[2]) + skip_three_lines)
+        f.write('Row Count per Species: \n'+ str(summary_tuple[3]) + skip_three_lines)  
+        f.write(summary_tuple[4] + '\n' + skip_three_lines)
+        f.write(' '*17 + 'All Species : Summary Statistics \n' + str(summary_tuple[5]) + skip_three_lines)
+        f.write(' '*17 + 'All Species : Correlation Statistics \n' + str(summary_tuple[6]) + skip_three_lines)
+
+write_summary_variables(summary_tuple)
