@@ -23,6 +23,7 @@
 &emsp; 2.3 Linear Discriminant Analysis and Machine learning <br>
 ### 3. Investigation
 &emsp; 3.1 Getting Started <br>
+&emsp; 3.2 Exploring The Data Set <br>
 ### 4. Discussion 
 ### 5. Summary 
 ### 6. References 
@@ -131,9 +132,10 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - The module makes directory hierarchy assumptions relative to its location for reading the Iris dataset / outputing plots. <br/>
   - Note: For best results and ease of use clone repository as described here: <br/>(**<https://docs.github.com/en/github/creating-cloning>**).
 
+<br/>
+<br/>
 
-<br/>
-<br/>
+&nbsp;**3.2 Exploring The Data Set**
 
 
 
