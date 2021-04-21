@@ -53,3 +53,36 @@ def write_summary_variables(summary_tuple):
         f.write(' '*17 + 'All Species : Correlation Statistics \n' + str(summary_tuple[8]) + skip_three_lines)
 
 write_summary_variables(summary_tuple)
+
+
+#Reference: https://seaborn.pydata.org/generated/seaborn.histplot.html
+#Reference: https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn
+#Reference: https://stackoverflow.com/questions/42404154/increase-tick-label-font-size-in-seaborn
+
+def plot_histograms(filename, plot_name, chart_title, x_series_one, x_series_two):  
+    bin_number = 15
+    fig, axes = plt.subplots(2, 2, figsize=(14, 14))
+    fig.suptitle('{}: Histogram of {} variables (cm)'.format(plot_name,chart_title),fontsize = 25)
+
+    sns.histplot(ax=axes[0, 0], data=iris_df, x = x_series_one, bins = bin_number, legend = False, kde = True,element = "step")
+    sns.histplot(ax=axes[0, 1], data=iris_df, x = x_series_two, bins = bin_number, legend = False, kde = True,element ="step")
+    sns.histplot(ax=axes[1, 0], data=iris_df, x = x_series_one, bins = bin_number, legend = False, hue = 'species',kde = True, element ="step") 
+    hist_with_legend = sns.histplot(ax=axes[1, 1], data=iris_df, x = x_series_two, bins = bin_number, hue = 'species', kde = True, element = "step") 
+    
+    plt.setp(hist_with_legend.get_legend().get_texts(), fontsize='20') # for legend text
+    plt.setp(hist_with_legend.get_legend().get_title(), fontsize='22') # for legend title
+    
+    for ax in plt.gcf().axes:
+        x = ax.get_xlabel()
+        y = ax.get_ylabel()
+        ax.set_xlabel(x, fontsize=20)
+        ax.set_ylabel(y, fontsize=0)
+
+        plt.setp(ax.get_xticklabels(), fontsize=15)  
+        plt.setp(ax.get_yticklabels(), fontsize=15)  
+      
+    fig.tight_layout() 
+    plt.savefig('Images/' + filename +'.png')
+ 
+plot_histograms('histograms_petals','Plot 1','Petals','petal_length','petal_width')
+plot_histograms('histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
