@@ -24,6 +24,9 @@
 ### 3. Investigation
 &emsp; 3.1 Getting Started <br>
 &emsp; 3.2 Exploring The Data Set <br>
+&emsp; &emsp; 3.2.1 Reading in the Dataset<br/>
+&emsp; &emsp; 3.2.2 Analysing the Dataframe<br/>
+&emsp; &emsp; 3.2.3 Descriptive Statistical Analysis<br/>
 ### 4. Discussion 
 ### 5. Summary 
 ### 6. References 
@@ -185,7 +188,6 @@ Fig. 4  |  Fig. 5  |  Fig. 6
 If one was dealing with larger datasets it would be unlikely that a null count of zero will be encountered. One can clean a dataset with null values in a number of ways. For example its possible to replace null values with a selection of your choice by passing this selection into the*.fillna()* pandas function, or alternatively drop rows that contain null values using *drop na()*. Solomon 2020 detailed more dynamic datset cleaning approaches. He described how NumPy's ability to generate Boolean masks on arrays can be utilised alongside pandas functions to perform fast detailed cleaning operations. An example of this would be using the Numpy *np.where()* function alongside pandas *.replace()* function to replace string in a series at defined locations. 
 
 <br/>
-
 
 
 | <img src="Images/summary_traits.png"  width="525"/>|
