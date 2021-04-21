@@ -187,12 +187,35 @@ Fig. 4  |  Fig. 5  |  Fig. 6
 
 If one was dealing with larger datasets it would be unlikely that a null count of zero will be encountered. One can clean a dataset with null values in a number of ways. For example its possible to replace null values with a selection of your choice by passing this selection into the*.fillna()* pandas function, or alternatively drop rows that contain null values using *drop na()*. Solomon 2020 detailed more dynamic datset cleaning approaches. He described how NumPy's ability to generate Boolean masks on arrays can be utilised alongside pandas functions to perform fast detailed cleaning operations. An example of this would be using the Numpy *np.where()* function alongside pandas *.replace()* function to replace string in a series at defined locations. 
 
-<br/>
+__Descriptive Statistical Analysis__<br/>
 
+
+The pandas *describe()* function is a very useful statistical summary method that can be applied to a given dataset. In its standard form this function returns the min, max, mean, median, 25th percentile, 75th percentile and standard deviation of the data. The Iris dataset was passed to this function, see Fig X below for statistical summary of the 4 attributes in the Iris Dataset. 
+
+<br/>
 
 | <img src="Images/summary_traits.png"  width="525"/>|
 |----------|
 | Fig 7.|
+
+
+<br/>
+
+The following observations were drawn from Fig X:
+
+- **Mean:** <br/>
+  Sepal length > petal length > sepal width > petal width.<br/>
+ 
+- **Standard Deviation:** <br/>
+  Petal length samples shows the highest deviation from the mean. Sepal width samples show the lowest deviation from the mean.<br/>
+  
+- **Min / Max range:**<br/>
+ Overlap between dimensional attributes exists.<br/>
+
+- **Median (50th percentile) and Mean comparison:**<br/>
+  Sepal length and sepal width have the lowest difference between their median and mean values which indicates that these attributes have a distribution that closer fits the bell curve / guassian distribution when compared to that of petal length and petal width. This observation was made because when data is distriubted in a "normal" manner the mean and median values are equal, however when the data skewed the mean defiates from the mode[Dan 2020].<br/> 
+
+<br/>
 
 
 ### 5. Reference:
