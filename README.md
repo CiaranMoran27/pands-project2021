@@ -51,7 +51,7 @@ The projects main aims are to achieve the following through incremental progress
 <br/>
 
 ### 2. Background
-&nbsp; **2.1 Describing the Data Set**
+**2.1 Describing the Data Set**
 
 The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[5]. 
 In summary, each row of data pertains to a single observation across the four listed anatomical dimensional attributes for a given species of iris.
@@ -72,7 +72,7 @@ In summary, each row of data pertains to a single observation across the four li
 <br/>
 <br/>
 
-&nbsp;**2.2 History of the Iris Data Set**
+**2.2 History of the Iris Data Set**
 
 The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [1]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
 <br/>
@@ -86,7 +86,7 @@ Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in L
 <br/>
 <br/>
 
-&nbsp;**2.3 Linear Discriminant Analysis and Machine learning**<br/>
+**2.3 Linear Discriminant Analysis and Machine learning**<br/>
 
 Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [Gonzalez, J, 2018] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions which are described by Brownlee (2016):
 1.	The data distribution is Gaussian, i.e is shaped like a bell curve.
@@ -105,7 +105,7 @@ This project will further explore and test supervised machine learning classific
 <br/>
 
 ### 3. Investigation
-&nbsp;**3.1 Getting Started**
+**3.1 Getting Started**
 
 This Section details the downloads, modules, tools, libraries and dependencies for this project.
 <br/>
@@ -138,7 +138,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 <br/>
 <br/>
 
-&nbsp;**3.2 Exploring The Data Set**
+**3.2 Exploring The Data Set**
 
 __Reading in the Dataset:__ [F1*] <br/>
 This was achieved using the pandas.read_csv()  method of the pandas library.  This method also works on text files as one can declare the delimiter value that separates each data field, which in this case is a comma. 
@@ -216,7 +216,53 @@ The following observations were drawn from Fig X:
   Sepal length and sepal width have the lowest difference between their median and mean values which indicates that these attributes have a distribution that closer fits the bell curve / guassian distribution when compared to that of petal length and petal width. This observation was made because when data is distriubted in a "normal" manner the mean and median values are equal, however when the data skewed the mean defiates from the mode[Dan 2020].<br/> 
 
 <br/>
+<br/>
 
+Histograms are considered simple plots but can give very useful visualisations on the distribution of the data. To gain more insight into the Iris data a histogram of each dependant variable was plotted. Each dependent variable has two plots, one consists of the variables with no grouping (blue plots) and the second consists of the independent variables grouped by species (multi-coloured plots), see figure X below for petal variable plots.
+
+<br/>
+
+<p align="center">
+  <img src="Images/histograms_petals.png" width="675" />
+</p>  
+
+<br/>
+
+Looking at the density plots of the blue histograms in fig X it becomes apparent that although the petal length and width distribution curves do have a degree of symmetry, they do not exhibit the bell curve “normal” distribution. These distributions instead, are typically referred to as bimodal as there is two local maximums present. This distribution often occuers when there is more than one population or class of data in the master data. In light of this the data was grouped by species using the Seaborn library's grouping variable called “hue”, which seperated the histogram into its three individual species classes. <br/>
+
+<br/>
+
+The grouped histograms for petal length and petal width clearly show that for these attributes the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. Based on these observations one could make an assumption that Iris petal attributes would play an important role in any attempt to classify the species class through any supervised machine learning model. Going one step further one could hypothesise the importance rank of the petal variables to a machine learning model as petal width > petal length.
+
+<br/>
+
+The sepal width and sepal length variables were also plotted on histograms to explore their distribution. As previously discussed, the median and mean values for both sepal variables are relatively similar, which would point towards a data curve that exhibits normal distribution (See fig Y).<br/>
+
+<br/>
+
+<p align="center">
+  <img src="Images/histograms_sepals.png" width="675" />
+</p>  
+
+<br/>
+
+The un-grouped sepal variable histograms (blue) do show the expected guassian curve. On further breakdown of the plots into their species (multicoloured) it became apparent that there is significant overlapping of data between species for both variables. Due to this poor separation one would assume that the sepal length and width attributes would be less effect than the petal attributes at classifying a species in a machine learning model.
+
+<br/>
+
+It was possible also possible to gain insight into data distributions via two pandas functions called **df.skew()** and **Series.kurtosis()**.<br/>
+Dan 2020 describes these two functions and how to evaluate their outputs:
+- **df.skew()**: Measures how symmetric a data distrubition is. The Function computes the "skewness" of the data present in a given axis of the DataFrame object. A skew value between -0.5 and 0.5 is considered symmetrical.
+- **series.kurtosis()**: Measures the heaviness of the distribution tails. The function computes the tail volumne difference relative to a guassian distribution curve. A kurtosis value of 0 is considered normal distribution, negative inidicates a flat thin-tailed distribution, positive indicates pointy fat-tailed distribution curves and a kurtosis value that exceeds absolute 3 indicates Excess Kurtosis.<br/>
+
+These two distrubtion functions were used to further analyse the iris independant variables (see Fig X for results). The results showed that for all iris dependant variables a degree of symmetry exists in the data distributions as all skew values lie between -0.5 and 0.5. The sepal length and sepal width attribues have a slightly right learning skew whearas the petal length and petal width attributes data curve is learning slightly to the left. All the kurtosis values for this datset do not exceed absolute 3, which indicates that for future sample selection there would be a low probability of obtaining an extreme outlier relative to the normal distribution curse.
+
+
+| <img src="Images/skew_kurtosis_nohue.png"  width="400"/>|
+|----------|
+| Fig X.|
+
+<br/>
 
 ### 5. Reference:
 [1]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>**<br/>
