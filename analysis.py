@@ -86,3 +86,43 @@ def plot_histograms(filename, plot_name, chart_title, x_series_one, x_series_two
  
 plot_histograms('histograms_petals','Plot 1','Petals','petal_length','petal_width')
 plot_histograms('histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
+
+
+
+# Referecnces 
+#C, J, 2020, Create a single legend for multiple plot in matplotlib, seaborn, stack overflow, viewed 21 April 2021, https://stackoverflow.com/questions/62252493/create-a-single-legend-for-multiple-plot-in-matplotlib-seaborn.
+# Reference: https://seaborn.pydata.org/generated/seaborn.boxplot.html
+def plot_boxplot():
+    from matplotlib import patches as mpatches
+
+    fig, axes = plt.subplots(1,4, figsize=(26, 14))
+    fig.suptitle('Fig X : Boxplot of Iris dependant variables (cm)', fontsize = 30)
+
+    sns.boxplot(ax=axes[0], x = iris_df["species"], y = iris_df["petal_length"], data = iris_df, width=0.75)
+    sns.boxplot(ax=axes[1], x=iris_df["species"], y=iris_df["petal_width"], data = iris_df, width=0.75)
+    sns.boxplot(ax=axes[2], x=iris_df["species"], y=iris_df["sepal_length"], data = iris_df, width=0.75)
+    sns.boxplot(ax=axes[3], x=iris_df["species"], y=iris_df["sepal_width"], data  =iris_df, width=0.75)
+
+    legend_labels = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+    setosa = mpatches.Patch(color='steelblue')
+    versi = mpatches.Patch(color='darkorange')
+    virgi = mpatches.Patch(color='green')
+
+    plt.legend(title = False, labels=legend_labels,
+              handles=[setosa, versi, virgi], bbox_to_anchor=(-0.05, 1.09),
+              fancybox=False, shadow=False, ncol=3, loc='upper right', fontsize = 25)
+
+    for ax in plt.gcf().axes:  
+        x = ax.get_xlabel()
+        y = ax.get_ylabel()
+        ax.set_xlabel(x, fontsize=17.5)
+        ax.set_ylabel(y, fontsize=17.5)
+        ax.set_ylim([0, 8])
+
+        ax.set_xticks([])
+        plt.setp(ax.get_xticklabels(), fontsize=15)  
+        plt.setp(ax.get_yticklabels(), fontsize=15) 
+
+    plt.savefig('Images/' + 'box_plots' +'.png')
+
+plot_boxplot()
