@@ -27,9 +27,11 @@
 &emsp; &emsp; 3.2.1 Reading in the Dataset<br/>
 &emsp; &emsp; 3.2.2 Analysing the Dataframe<br/>
 &emsp; &emsp; 3.2.3 Descriptive Statistical Analysis<br/>
+&emsp; &emsp; 3.2.4 Correlation Analysis <br>
+&emsp; 3.3 Machine Learning <br>
+&emsp; &emsp; 3.3.1 Feature Selection <br>
 ### 4. Discussion 
-### 5. Summary 
-### 6. References 
+### 5. References 
 
 
 <br/>
