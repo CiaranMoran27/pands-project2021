@@ -281,7 +281,30 @@ The following observations were drawn from Fig X:
 
 <br/>
 
+__3.2.4 Correlation Analysis__<br/>
 
+To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 3 below). As detailed by Brownlee 2018, it is important to discover and quantify the degree to which variabeles are depenadnt on eachother. He then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
+
+<br/>
+
+<p align="center">
+  <img src="Images/scatter_plots.png" width="1100" />
+</p> 
+
+<br/>
+
+On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases at a similar rate. Sepal length vs petal length  and sepal length vs petal width regression lines also show a positive degree of linear correlation.
+The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This method was used on iris dataset, which by default uses the Pearson method when the type is not declared in the function,  see Fig X.
+
+<br/>
+
+| <img src="Images/correlation_statistics.png"  width="525"/>|
+|----------|
+| Fig X.|
+
+<br/>
+
+Figure X pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length and petal width showing the highest positive linear correlation with a value of 0.96. 
 
 
 ### 5. Reference:
