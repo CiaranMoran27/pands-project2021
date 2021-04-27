@@ -126,3 +126,45 @@ def plot_boxplot():
     plt.savefig('Images/' + 'box_plots' +'.png')
 
 plot_boxplot()
+
+
+
+def scatter_plot():     
+# Reference:
+# Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
+    fig, axes = plt.subplots(2, 3, figsize=(22, 18))
+    plt.subplots_adjust(wspace=0.2,hspace=0.4)
+    fig.suptitle('Plot X: Scatter Plot of all variables (units = cm)',fontsize = 25)
+
+    sns.regplot(ax=axes[0, 0], data=iris_df, x='petal_length', y='petal_width')
+    sns.regplot(ax=axes[0, 1], data=iris_df, x='petal_length', y='sepal_length')
+    sns.regplot(ax=axes[0, 2], data=iris_df, x='petal_length', y='sepal_width') 
+    sns.regplot(ax=axes[1, 0], data=iris_df, x='sepal_length', y='sepal_width')
+    sns.regplot(ax=axes[1, 1], data=iris_df, x='sepal_length', y='petal_width') 
+    sns.regplot(ax=axes[1, 2], data=iris_df, x='sepal_width',  y='petal_width')
+
+    for ax in plt.gcf().axes:
+        x = ax.get_xlabel()
+        y = ax.get_ylabel()
+        ax.set_xlabel(x, fontsize=20)
+        ax.set_ylabel(y, fontsize=20)
+        ax.set_xlim([0, 8])
+        ax.set_ylim([0, 8])
+        plt.setp(ax.get_xticklabels(), fontsize=15)  
+        plt.setp(ax.get_yticklabels(), fontsize=15)  
+    
+    fig.tight_layout()
+    plt.subplots_adjust(wspace=0.25, hspace = 0.25, top = 0.95)     
+    plt.savefig('Images/' + 'scatter_plots' +'.png')
+
+
+
+
+    if __name__ == '__main__':
+    plot_histograms('histograms_petals','Plot 1','Petals','petal_length','petal_width')
+    plot_histograms('histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
+    plot_boxplot()
+    scatter_plot()
+    implot()
+else:
+    pass
