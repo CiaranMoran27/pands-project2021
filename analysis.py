@@ -40,7 +40,8 @@ class summary_creator:
         # calls object attributes relevant to summary
         # writes the summaries (w = overwrite) to text file, operation will make file if doesnt exist
     def write_function(self):
-        with open('summary_file.txt', 'w') as f:      
+        with open('summary_file.txt', 'w') as f: 
+                 
             spacing_variable = ('\n' * 3)
             f.write('Fisher Iris Dataset Summary' + spacing_variable)
             f.write('Number of columns = {} \nNumber of rows = {}{}'.format(summary_creator_val.shape[0],summary_creator_val.shape[1],spacing_variable)) 
@@ -114,7 +115,7 @@ def plot_boxplot():
 # [2] Waskom, M, 2021, seaborn.boxplot, viewed 21 April 2021, https://seaborn.pydata.org/generated/seaborn.boxplot.html.
 
     fig, axes = plt.subplots(1,4, figsize=(26, 14))
-    fig.suptitle('Fig X : Boxplot of Iris dependant variables (cm)', fontsize = 30)
+    fig.suptitle('Fig 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30)
 
     sns.boxplot(ax=axes[0], x = iris_df["species"], y = iris_df["petal_length"], data = iris_df, width=0.75)
     sns.boxplot(ax=axes[1], x=iris_df["species"], y=iris_df["petal_width"], data = iris_df, width=0.75)
@@ -141,7 +142,7 @@ def plot_boxplot():
         plt.setp(ax.get_xticklabels(), fontsize=20)  
         plt.setp(ax.get_yticklabels(), fontsize=15) 
 
-    plt.savefig('Images/' + 'box_plots' +'.png')
+    plt.savefig('Images/' + 'plot3_box_plots' +'.png')
 
 
 
@@ -150,7 +151,7 @@ def scatter_plot():
 # Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
     fig, axes = plt.subplots(2, 3, figsize=(22, 18))
     plt.subplots_adjust(wspace=0.2,hspace=0.4)
-    fig.suptitle('Plot X: Scatter Plot of all variables (units = cm)',fontsize = 25)
+    fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 25)
 
     sns.regplot(ax=axes[0, 0], data=iris_df, x='petal_length', y='petal_width')
     sns.regplot(ax=axes[0, 1], data=iris_df, x='petal_length', y='sepal_length')
@@ -171,14 +172,14 @@ def scatter_plot():
     
     fig.tight_layout()
     plt.subplots_adjust(wspace=0.25, hspace = 0.25, top = 0.95)     
-    plt.savefig('Images/' + 'scatter_plots' +'.png')   
+    plt.savefig('Images/' + 'plot4_scatter_plots' +'.png')   
 
 
     
     
 if __name__ == '__main__':
-    plot_histograms('histograms_petals','Plot 1','Petals','petal_length','petal_width')
-    plot_histograms('histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
+    plot_histograms('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
+    plot_histograms('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
     plot_boxplot()
     scatter_plot()
 

@@ -1,7 +1,7 @@
 <br/>
 
 <p align="center">
-  <img src="./Images/GMIT_logo.jpg" width="500" />
+  <img src="./Images/cover_image.jpg" width="500" />
 </p>  <Source: https://image.ibb.co/gw4Gen/Index_GMIT.png>
 
 <br/>
@@ -67,7 +67,7 @@ In summary, each row of data pertains to a single observation across the four li
 
 <br/>
 
-| <img src="Images/iris_species.jpg"  width="600"/>|
+| <img src="Images/fig1_iris_species.jpg"  width="600"/>|
 |----------|
 | Fig 1. Iris Species [<!--- Dynatrace, 2021 --->]|
 
@@ -81,7 +81,7 @@ The iris data set observations were collected at the Gaspé Peninsula by a botan
 Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [<!-- Jain  2011 -->]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” . In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [ <!--- Cui 2020 --->]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
 <br/>
 
-| <img src="Images/Ronald_Fisher.jpg"  width="250"/>|
+| <img src="Images/fig2_ronald_fisher.jpg"  width="250"/>|
 |----------|
 | Fig 2. Ronald Fisher [<!--- fisher image--->]|
 
@@ -155,7 +155,7 @@ The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n
 
 <br/>
 
-| <img src="Images/df_head(5).png"  width="525"/>|
+| <img src="fig3_Images/df_head(5).png"  width="525"/>|
 |----------|
 | Fig 3.|
 
@@ -180,7 +180,7 @@ Pandas and Numpy work effectively together to help clean dataframes, for example
 
 <br/>
 
-<img src="Images/species_groupby.png"  width="165"/>|<img src="Images/data_types.png"  width="190"/> | <img src="Images/null_count.png"  width="180"/>
+<img src="Images/fig4_species_groupby.png"  width="165"/>|<img src="Images/fig5_data_types.png"  width="190"/> | <img src="Images/fig6_null_count.png"  width="180"/>
 :-------------------------:|:-------------------------:|:-------------------------:
 Fig. 4  |  Fig. 5  |  Fig. 6  
  
@@ -199,7 +199,7 @@ Histograms are considered simple plots but can give very useful visualisations o
 <br/>
  <!--- Plot 1 --->
 <p align="center">
-  <img src="Images/histograms_petals.png" width="675" /> 
+  <img src="Images/plot1_histograms_petals.png" width="675" /> 
 </p>  
 
 <br/>
@@ -213,7 +213,7 @@ Histograms are considered simple plots but can give very useful visualisations o
 <br/>
  <!--- Plot 2 --->
 <p align="center">
-  <img src="Images/histograms_sepals.png" width="675" />
+  <img src="Images/plot2_histograms_sepals.png" width="675" />
 </p>  
 
 <br/>
@@ -232,7 +232,7 @@ These two distrubtion functions were used to further analyse the ungrouped iris 
 
 <br/>
 
-| <img src="Images/skew_kurtosis_nohue.png"  width="400"/>|
+| <img src="Images/fig7_skew_kurtosis_nohue.png"  width="400"/>|
 |----------|
 | Fig 7.|
 <br/>
@@ -242,7 +242,7 @@ The pandas *describe()* function is a very useful statistical summary method tha
 
 <br/>
 
-| <img src="Images/summary_traits.png"  width="525"/>|
+| <img src="Images/fig8_summary_traits.png"  width="525"/>|
 |----------|
 | Fig 8.|
 
@@ -270,7 +270,7 @@ In addition to the analyis already performed it was considered necessary to visu
 
 <br/>
  <!--- Plot 3 --->
-<img src="Images/box_plots.png"  width="1200"/> 
+<img src="Images/plot3_box_plots.png"  width="1200"/> 
 
 The following observations were drawn from Plot 3:
 - Data Distribution:
@@ -289,9 +289,9 @@ __3.2.4 Correlation Analysis__<br/>
 To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). As detailed by Brownlee 2018, it is important to discover and quantify the degree to which variabeles are depenadnt on eachother. He then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
 
 <br/>
- <!--- Plot 3 --->
+ <!--- Plot 4 --->
 <p align="center">
-  <img src="Images/scatter_plots.png" width="1100" />
+  <img src="Images/plot4_scatter_plots.png" width="1100" />
 </p> 
 
 <br/>
@@ -301,7 +301,7 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-| <img src="Images/correlation_statistics.png"  width="525"/>|
+| <img src="Images/fig9_correlation_statistics.png"  width="525"/>|
 |----------|
 | Fig 9.|
 
@@ -326,7 +326,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 <br/>
 
- <img src="Images/knn_model_k_single.png"  width="1100"/>|
+ <img src="Images/plot5_knn_model_k_single.png"  width="1100"/>|
 
 <br/>
 
@@ -338,7 +338,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 
 <br/>
 
- <img src="Images/knn_model_k_multiple.png"  width="1100"/>|
+ <img src="Images/plot6_knn_model_k_multiple.png"  width="600"/>|
 
  <br/>
 
@@ -347,27 +347,29 @@ For the last part of this project the KNN model was expored in more detail in a 
 <br/>
 
 ### 5. Reference:
-[1]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
-[2]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
-- [3]. Fernandes, M 2016, 'From Three Fishers: Statistician, Geneticist and Person to Only One Fisher: The Scientist', Journal of Biometrics & Biostatistics, vol. 7, no. 1, pp. 1, DOI: 10.4172/2155-6180.1000282.<br/>
-[4]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica,<br/> **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
-[5]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<https://archive.ics.uci.edu/ml/datasets/iris/>.**<br/>
-[6]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>.**<br/>
 
-[X] Sharma, R, 2019, Gaussian distribution, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>.**<br/>
-[X] Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>.**<br/>
-[X] Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021,<br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>**<br/>
-[X] Brownlee, L, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021,<br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/>**<br/>
-[X]: Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>**<br/>
-[X] Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021,<br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>**<br/>
-[X] GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>**<br/>
-[X] Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
-[X] Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
-[X] Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
-[X] Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>**.<br/>
-[X] Brownlee, J, 2018, A Gentle Introduction to k-fold Cross-Validation, viewed 27 April 2021,<br/> **<https://machinelearningmastery.com/k-fold-cross-validation/.>**.
-[X] Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,<br/> **<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
-[X] Saha, S, 2018, Baffled by Covariance and Correlation??? Get the Math and the Application in Analytics for both the terms, towards data science, viewed 23 April 2021, <br/>**<https://towardsdatascience.com/let-us-understand-the-correlation-matrix-and-covariance-matrix-d42e6b643c22>.**<br/>
-[X] Malik, U, 2021, Applying Wrapper Methods in Python for Feature Selection, Stack Abuse, **<https://stackabuse.com/applying-wrapper-methods-in-python-for-feature-selection/>.**.
-[X] Asaithambi, S, 2018, Why, How and When to apply Feature Selection, viewed 26 April 2021, **<https://towardsdatascience.com/why-how-and-when-to-apply-feature-selection-e9c69adfabf2>.**
-[X] Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**
+[1]. Asaithambi, S, 2018, Why, How and When to apply Feature Selection, viewed 26 April 2021, **<https://towardsdatascience.com/why-how-and-when-to-apply-feature-selection-e9c69adfabf2>.** <br/>
+[2]. Brownlee, J, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021,<br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/>.**<br/>
+[3]. Brownlee, J, 2018, A Gentle Introduction to k-fold Cross-Validation, viewed 27 April 2021,<br/> **<https://machinelearningmastery.com/k-fold-cross-validation/.>**.<br/>
+[4] Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
+[5]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
+[6]. Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
+[7]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
+[8]. Fernandes, M 2016, 'From Three Fishers: Statistician, Geneticist and Person to Only One Fisher: The Scientist', Journal of Biometrics & Biostatistics, vol. 7, no. 1, pp. 1, DOI: 10.4172/2155-6180.1000282.<br/>
+[9]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
+[10]. Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021,<br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>.**<br/>
+[11]. Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**
+[12]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
+[13]. Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>.**<br/>
+[14]. Malik, U, 2021, Applying Wrapper Methods in Python for Feature Selection, Stack Abuse, **<https://stackabuse.com/applying-wrapper-methods-in-python-for-feature-selection/>.**<br/>
+[15]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
+[16]. Saha, S, 2018, Baffled by Covariance and Correlation??? Get the Math and the Application in Analytics for both the terms, towards data science, viewed 23 April 2021,**<https://towardsdatascience.com/let-us-understand-the-correlation-matrix-and-covariance-matrix-d42e6b643c22>.**<br/>
+[17]. Sharma, R, 2019, Gaussian distribution, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>.**<br/>
+[18]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
+[19]. Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021,<br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>.**<br/>
+[20]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<https://archive.ics.uci.edu/ml/datasets/iris/>.**<br/>
+[21]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>**<br/>
+[22]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>.**<br/>
+[23]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
+
+
