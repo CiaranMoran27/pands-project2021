@@ -65,3 +65,45 @@ def knn_model_k_single(iris_data, iris_target_numeric):
     ax.set_xlabel('Accuracy / 100')                                                       # sets x axis labels
     fig.tight_layout()                                                                    # adjust plot format to frame size
     plt.savefig('Images/' + 'knn_model_k_single' +'.png')   
+
+
+
+def knn_model_k_multiple(iris_data, iris_target_numeric):
+# Reference: 
+# M, S, 2018, MachineLearning — KNN using scikit-learn, towards data science, viewed 27 April 2021, 
+# https://towardsdatascience.com/knn-using-scikit-learn-c6bed765be75.
+
+
+    # splits the numpy arrays into 20 : 80 sets for test size: train size  
+    # random state control how splitting occuers, e.g a value of 0 will retain the same splitting method 
+    X_train, x_test, Y_train, y_test = train_test_split(iris_data, iris_target_numeric, test_size=0.2, random_state = 0)
+
+    k_range = range(1,26)        # define range for loop
+    score = {}
+    score_list = []
+
+    for k in k_range:
+        knn = KNeighborsClassifier(n_neighbors = k)                 # define knn as KNNClassifier and set k value as iterator          
+        knn.fit(X_train,Y_train)                                    # Fit the k-nearest neighbors classifier from the training dataset
+        y_pred = knn.predict(x_test)                                # Predict the class labels for the provided data
+        score[k] = metrics.accuracy_score(y_test, y_pred)           # computes accuracy of test vs predicted datasets
+        score_list.append(metrics.accuracy_score(y_test, y_pred))   # appends accuracy scores to score_list
+
+    plt.clf()                                                                            # Clear figure
+    plt.title('Plox X: KNeighborsClassifier Model % Accuracy', fontsize = 25)            # add title
+    ax = sns.lineplot(x = k_range, y = score_list, color = 'blue')                       # seaborn line plot
+    ax.set_xlabel('K value (Number of Neighbours)', fontsize=20)                         # set xlabel and fontsize
+    ax.set_ylabel('% Accuracy / 100', fontsize=20)                                       # set ylabel and fontsize
+    plt.setp(ax.get_xticklabels(), fontsize=15)                                          # set xticks and fontsize
+    plt.setp(ax.get_yticklabels(), fontsize=15)                                          # set yticks and fontsize
+
+    plt.tight_layout()                                                                   # adjust plot format to frame size
+    plt.savefig('Images/' + 'knn_model_k_multiple' +'.png')   
+    
+
+
+
+if __name__ == '__main__':
+    define_dataframes()
+else:
+    pass
