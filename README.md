@@ -318,6 +318,34 @@ Feature selection is an important process that is used in machine learning to ch
 
 <br/>
 
+__3.3.2 Choosing a Model__
+
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler models and run it on the Iris Dataset in an attempt to classify the target species. The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [Harrison 2018]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied.
+
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A k fold cross validation vallue of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 5 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance (Malik 2021), it was still used for investigation purposes).
+
+<br/>
+
+ <img src="Images/knn_model_k_single.png"  width="1100"/>|
+
+<br/>
+
+The results from plot X are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width).
+
+<br/>
+
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was undertaken and the whole  iris dataset, which was split into two parts (20:80) for model testing and training respevtively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot X for output.
+
+<br/>
+
+ <img src="Images/knn_model_k_multiple.png"  width="1100"/>|
+
+ <br/>
+
+ Based on the results from figure X the KNN loop yielded the highest accuracy at k = 4 and K = 6 to 25. This ability to predict species to 100% accuracy is impressive even for a small dataset such as the Fisher Iris Dataset. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
+
+<br/>
+
 ### 5. Reference:
 [1]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
 [2]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
