@@ -155,7 +155,7 @@ The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n
 
 <br/>
 
-| <img src="fig3_Images/df_head(5).png"  width="525"/>|
+| <img src="Images/fig3_df_head(5).png"  width="525"/>|
 |----------|
 | Fig 3.|
 
@@ -266,7 +266,8 @@ The following observations were drawn from Fig 8:
 <br/>
 
 __Boxplot Analysis:__ <br/>
-In addition to the analyis already performed it was considered necessary to visualise the data distriubtion with the same y-axis scaling for each iris feature across all species. The boxplot came to mind as a suitable plotting method as it displays the data distribution in a standardized way and yields information on the symmetry and outliers in the dataset (see Plot 3 [FX*]). 
+In addition to the histogram already performed it was considered necessary to visualise the data distriubtion with the same y-axis scaling for each iris feature across all species. The boxplot came to mind as a suitable plotting method as it displays the data distribution in a standardized way and yields information on the symmetry and outliers in the dataset (see Plot 3 [FX*]). 
+
 
 <br/>
  <!--- Plot 3 --->
@@ -307,7 +308,7 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-Figure 9 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length and petal width showing the highest positive linear correlation with a value of 0.96. 
+Figure 9 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length and petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 9 that Multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. The effect of this will be explored further using a machine learning model.
 
 <br/>
 
@@ -322,7 +323,7 @@ __3.3.2 Choosing a Model__
 
 One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler models and run it on the Iris Dataset in an attempt to classify the target species. The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [Harrison 2018]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied.
 
-In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A k fold cross validation vallue of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 5 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance (Malik 2021), it was still used for investigation purposes).
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance (Malik 2021), it was still used for investigation purposes).
 
 <br/>
 
@@ -330,7 +331,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 <br/>
 
-The results from plot X are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width).
+The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model.
 
 <br/>
 
@@ -338,7 +339,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 
 <br/>
 
- <img src="Images/plot6_knn_model_k_multiple.png"  width="600"/>|
+ <img src="Images/plot6_knn_model_k_multiple.png"  width="600"/>
 
  <br/>
 

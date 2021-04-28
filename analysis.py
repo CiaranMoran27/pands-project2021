@@ -41,7 +41,7 @@ class summary_creator:
         # writes the summaries (w = overwrite) to text file, operation will make file if doesnt exist
     def write_function(self):
         with open('summary_file.txt', 'w') as f: 
-                 
+
             spacing_variable = ('\n' * 3)
             f.write('Fisher Iris Dataset Summary' + spacing_variable)
             f.write('Number of columns = {} \nNumber of rows = {}{}'.format(summary_creator_val.shape[0],summary_creator_val.shape[1],spacing_variable)) 
@@ -151,7 +151,7 @@ def scatter_plot():
 # Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
     fig, axes = plt.subplots(2, 3, figsize=(22, 18))
     plt.subplots_adjust(wspace=0.2,hspace=0.4)
-    fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 25)
+    fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 30)
 
     sns.regplot(ax=axes[0, 0], data=iris_df, x='petal_length', y='petal_width')
     sns.regplot(ax=axes[0, 1], data=iris_df, x='petal_length', y='sepal_length')

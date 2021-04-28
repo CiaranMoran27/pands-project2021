@@ -63,15 +63,18 @@ def knn_model_k_single(iris_data, iris_target_numeric):
     # Create bar chart on mean performance of each subset of features
     fig, ax = plt.subplots(figsize=(12,9))                                                  # create figure & axes
     plt.title('Plox 5: KNeighborsClassifier Model Accuracy', fontsize = 20)                 # add title   
+    
     y_pos = np.arange(len(df))                                                              # stores evenly spaced values that total the length of the df 
-    ax.barh(y_pos, df['avg_score'], xerr=df['std_dev'])                                     # sets chart parameters
-    ax.set_yticks(y_pos)                                                                    # sets y positions 
-    ax.set_yticklabels(df['feature_names'])                                                 # sets y labels
+    ax.barh(y_pos, df['avg_score'], xerr=df['std_dev'])                                     # sets chart parameters 
+    ax.set_yticks(y_pos)                                                                    # sets y positions    
+    ax.set_yticklabels(df['feature_names'], fontsize = 11)                                  # sets y labels
     ax.yaxis.tick_right()                                                                   # y axis ticks right
-    ax.yaxis.set_label_position("right")                                                    # y axis labels right 
-    ax.set_xlabel('Accuracy / 100')                                                         # sets x axis labels
+    ax.yaxis.set_label_position("right")                                                    # y axis labels right   
+    
+    ax.set_xlabel('Accuracy / 100', fontsize = 15)                                          # sets x axis labels
     fig.tight_layout()                                                                      # adjust plot format to frame size
     plt.savefig('Images/' + 'plot5_knn_model_k_single' +'.png')   
+
 
 
 def knn_model_k_multiple(iris_data, iris_target_numeric):
