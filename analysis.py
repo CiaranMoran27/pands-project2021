@@ -186,7 +186,7 @@ def scatter_plot():
 def plot_histogram_single():  
     plt.clf()                                                                                           
     bin_number = 15
-    plt.title('Plot 7: Histogram of all feautres together (cm)', fontsize = 15)
+    plt.title('Plot 6: Histogram of all feautres together (cm)', fontsize = 15)
 
     sns.histplot(data=iris_df, x="sepal_length", label="Sepal Length", color="red", bins = bin_number)
     sns.histplot(data=iris_df, x="sepal_width", label="Sepal Width", color="orange", bins = bin_number)
@@ -194,7 +194,7 @@ def plot_histogram_single():
     sns.histplot(data=iris_df, x="petal_width", label="Petal Width", color="green", bins = bin_number)
     plt.legend()
     plt.tight_layout() 
-    plt.savefig('Images/' + 'plot7_histogram_allfeature' +'.png')
+    plt.savefig('Images/' + 'plot6_histogram_allfeature' +'.png')
 
     
 

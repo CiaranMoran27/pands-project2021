@@ -99,14 +99,14 @@ def knn_model_k_multiple(iris_data, iris_target_numeric):
         score_list.append(metrics.accuracy_score(y_test, y_pred))                           # appends accuracy scores to score_list
 
     plt.clf()                                                                            # Clear figure
-    plt.title('Plox 6: KNeighborsClassifier Model % Accuracy', fontsize = 25)            # add title
+    plt.title('Plox 7: KNeighborsClassifier Model % Accuracy', fontsize = 25)            # add title
     ax = sns.lineplot(x = k_range, y = score_list, color = 'blue')                       # seaborn line plot
     ax.set_xlabel('K value (Number of Neighbours)', fontsize=20)                         # set xlabel and fontsize
     ax.set_ylabel('% Accuracy / 100', fontsize=20)                                       # set ylabel and fontsize
     plt.setp(ax.get_xticklabels(), fontsize=15)                                          # set xticks and fontsize
     plt.setp(ax.get_yticklabels(), fontsize=15)                                          # set yticks and fontsize
     plt.tight_layout()                                                                   # adjust plot format to frame size
-    plt.savefig('Images/' + 'plot6_knn_model_k_multiple' +'.png')   
+    plt.savefig('Images/' + 'plot7_knn_model_k_multiple' +'.png')   
     
 
 define_dataframes()

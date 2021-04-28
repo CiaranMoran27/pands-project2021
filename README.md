@@ -340,15 +340,20 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model.
+To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. To help  explain this a new histogram was prepared with all featured on the one plot and it was confirmed that the petal width overalapped more with other features, sepal width on the otherhand appeared to overlap less with other features( See Plot 6). This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
 
 <br/>
+
+ <img src="Images/plot6_histogram_allfeature.png"  width="1100"/>|
+
+<br/>
+
 
 For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features. The data was split into two parts (20:80) for model testing and training respevtively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 6 for output.
 
 <br/>
 
- <img src="Images/plot6_knn_model_k_multiple.png"  width="600"/>
+ <img src="Images/plot7_knn_model_k_multiple.png"  width="600"/>
 
  <br/>
 
