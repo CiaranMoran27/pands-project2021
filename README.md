@@ -116,10 +116,10 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Downloaded here (**<https://code.visualstudio.com/download>**).
 
 - Python 3.8.5 was used as the programming language for this data analysis project. <br/>
-  - Downloaded here (**<https://www.python.org/downloads/>**).
+  - Downloaded here: **<https://www.python.org/downloads/>**.
 
 - Anacondas was downloaded for its many useful libraries included in the package. <br/>
-  - Download here (**<https://docs.anaconda.com/anaconda/install/>**).<br/>
+  - Download here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
     Main libraries used: <br/>
     - numpy 1.19.2 <br/>
     - pandas 1.1.3 <br/>
@@ -127,15 +127,24 @@ This Section details the downloads, modules, tools, libraries and dependencies f
     - seaborn 0.11.0 <br/>
 
 - Fisher Iris Dataset:
-  - Downloaded here (**<http://archive.ics.uci.edu/ml/datasets/Iris>**). <br/>
-  - Saved as ‘’Iris_Data_Set.txt” in the same directory as Analysis.py module. <br/>
+  - This was downloaded here : **<http://archive.ics.uci.edu/ml/datasets/Iris>**. <br/>
+  - This was saved as ‘’Iris_Data_Set.txt” in the same directory as Analysis.py module. <br/>
 
-- Analysis.py<br/>
-  - This Python module contains the source code used to generate a Summary text file and output plots. <br/>
-  - It Conisits of numerous functions that will be referenced throughout this investigation. <br/>
-  - Code References will be located in the module and donted via [*1]...[*n...] etc.. <br/>
-  - The module makes directory hierarchy assumptions relative to its location for reading the Iris dataset / outputing plots. <br/>
-  - Note: For best results and ease of use clone repository as described here: <br/>(**<https://docs.github.com/en/github/creating-cloning>**).
+- Repository:
+  - Repository is located here: **<https://github.com/CiaranMoran27/pands-project2021>**.
+  - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning>**.
+
+- analysis.py<br/>
+  - This Python module contains the source code used to generate summary_file.txt and output plots saved to Images folder as .png files.
+  - It Conisits of numerous functions that will be referenced throughout the README file. <br/>
+  - Code References will be located in the module at the top of each function and denoted via [*1], [*2],[*n..] etc 
+  - Run analysis.py to execute the functions and write summary and relevent plots.
+  <br/>
+
+- machine_learning.py<br/>
+  - This Python module contains the source code used to generate two machine learning output plots saved to Images folder as .png files.
+  - It Conisits of two functions that will be referenced throughout the README file and denoted as in analysis.py.
+  - Run machine_learning.py to execute the functions and write the plots.
 
 <br/>
 <br/>

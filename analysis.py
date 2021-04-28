@@ -7,6 +7,8 @@ import os
 
 os.chdir(os.path.dirname(__file__))                                                              # change current directory to that of this module
 
+
+
 #[F1*]    
 def read_iris_dataset():
     iris_data_file = 'iris_data_set.txt'
@@ -78,7 +80,7 @@ summary_creator_val.write_function()                                            
 
 
 #[F4*]    
-#Reference: 
+#Reference used to generate plot: 
 # [1] Holtz, Y, 2021, Histogram with several variables with Seaborn, viewed 20 April 2021, 
 #     https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn
 # [2] Waskom, M, 2021, seaborn.histplot, viewed 20 April 2021, https://seaborn.pydata.org/generated/seaborn.histplot.html.
@@ -112,7 +114,7 @@ def plot_histograms_multi(filename, plot_name, chart_title, x_series_one, x_seri
 
 
 #[F5*]  
-# 
+#Reference used to generate plot: 
 # [1] C, J, 2020, Create a single legend for multiple plot in matplotlib, seaborn, stack overflow, viewed 21 April 2021, 
 #     https://stackoverflow.com/questions/62252493/create-a-single-legend-for-multiple-plot-in-matplotlib-seaborn.
 # [2] Waskom, M, 2021, seaborn.boxplot, viewed 21 April 2021, https://seaborn.pydata.org/generated/seaborn.boxplot.html.
@@ -151,7 +153,7 @@ def plot_boxplot():
     plt.savefig('Images/' + 'plot3_box_plots' +'.png')
 
 #[F6*] 
-# Reference:
+#Reference used to generate plot: 
 # Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
 def scatter_plot():     
     fig, axes = plt.subplots(2, 3, figsize=(22, 18))
@@ -178,7 +180,6 @@ def scatter_plot():
     fig.tight_layout()
     plt.subplots_adjust(wspace=0.25, hspace = 0.25, top = 0.95)     
     plt.savefig('Images/' + 'plot4_scatter_plots' +'.png')   
-
 
 
 
