@@ -308,6 +308,14 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 Figure X pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length and petal width showing the highest positive linear correlation with a value of 0.96. 
 
+<br/>
+
+__3.3 Machine Learning__ <br>
+
+__3.3.1 Feature Selection__
+Feature selection is an important process that is used in machine learning to choose the features of the dataset that best describe the target and if needed drop variables that dont describe the target output. Asaithambi 2018 describes how models with higher levels of dimensionality can struggle as training time increases exponentially with number of features and the model has a higher risk of overfitting. As the Fisher Iris dataset has a low number of variables one could presume that dimensionality reduction of the dataset would be less important when feeding the data to a machind learning model, however this avenue will be explored in more detail. 
+
+<br/>
 
 ### 5. Reference:
 [1]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
