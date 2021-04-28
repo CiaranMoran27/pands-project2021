@@ -7,7 +7,7 @@ import os
 
 os.chdir(os.path.dirname(__file__))                                                              # change current directory to that of this module
 
-
+#[F1*]    
 def read_iris_dataset():
     iris_data_file = 'iris_data_set.txt'
     iris_df = pd.read_csv(iris_data_file, delimiter = ',', header = None)                        # read in Iris Dataset via Pandas Library
@@ -17,8 +17,7 @@ def read_iris_dataset():
 iris_df = read_iris_dataset()                                                                    # store dataframe in iris_df variable
 
 
-
-
+#[F2*]
 class summary_creator:  
     # constructor __init__ method:
         # called when object is Instantiated
@@ -55,6 +54,7 @@ class summary_creator:
             f.write(' '*17 + 'All Species : Correlation Statistics \n' + str(summary_creator_val.correlation) + spacing_variable)
 
 
+#[F3*]
 def summary_variables():                                                                     # setting summary variables via pandas methods
         shape = (len(iris_df.axes[1]),len(iris_df.axes[0]))                                  # length/width of dataframe
         data_types = iris_df.dtypes                                                          # data-types of columns                                                           
@@ -77,11 +77,13 @@ summary_creator_val.write_function()                                            
 
 
 
-def plot_histograms(filename, plot_name, chart_title, x_series_one, x_series_two):  
+#[F4*]    
 #Reference: 
 # [1] Holtz, Y, 2021, Histogram with several variables with Seaborn, viewed 20 April 2021, 
 #     https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn
 # [2] Waskom, M, 2021, seaborn.histplot, viewed 20 April 2021, https://seaborn.pydata.org/generated/seaborn.histplot.html.
+def plot_histograms_multi(filename, plot_name, chart_title, x_series_one, x_series_two):  
+
     bin_number = 15
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 14))
@@ -109,11 +111,15 @@ def plot_histograms(filename, plot_name, chart_title, x_series_one, x_series_two
  
 
 
-def plot_boxplot():
+#[F5*]  
+# 
 # [1] C, J, 2020, Create a single legend for multiple plot in matplotlib, seaborn, stack overflow, viewed 21 April 2021, 
 #     https://stackoverflow.com/questions/62252493/create-a-single-legend-for-multiple-plot-in-matplotlib-seaborn.
 # [2] Waskom, M, 2021, seaborn.boxplot, viewed 21 April 2021, https://seaborn.pydata.org/generated/seaborn.boxplot.html.
 
+
+
+def plot_boxplot():
     fig, axes = plt.subplots(1,4, figsize=(26, 14))
     fig.suptitle('Fig 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30)
 
@@ -144,11 +150,10 @@ def plot_boxplot():
 
     plt.savefig('Images/' + 'plot3_box_plots' +'.png')
 
-
-
-def scatter_plot():     
+#[F6*] 
 # Reference:
 # Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
+def scatter_plot():     
     fig, axes = plt.subplots(2, 3, figsize=(22, 18))
     plt.subplots_adjust(wspace=0.2,hspace=0.4)
     fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 25)
@@ -175,13 +180,29 @@ def scatter_plot():
     plt.savefig('Images/' + 'plot4_scatter_plots' +'.png')   
 
 
+
+
+#[F7*]  
+def plot_histogram_single():  
+    plt.clf()                                                                                           
+    bin_number = 15
+    plt.title('Plot 7: Histogram of all feautres together (cm)', fontsize = 15)
+
+    sns.histplot(data=iris_df, x="sepal_length", label="Sepal Length", color="red", bins = bin_number)
+    sns.histplot(data=iris_df, x="sepal_width", label="Sepal Width", color="orange", bins = bin_number)
+    sns.histplot(data=iris_df, x="petal_length", label="Petal Width", color="blue", bins = bin_number)
+    sns.histplot(data=iris_df, x="petal_width", label="Petal Width", color="green", bins = bin_number)
+    plt.legend()
+    plt.tight_layout() 
+    plt.savefig('Images/' + 'plot7_histogram_allfeature' +'.png')
+
     
-    
+
 if __name__ == '__main__':
-    plot_histograms('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
-    plot_histograms('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
+    plot_histograms_multi('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
+    plot_histograms_multi('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
     plot_boxplot()
     scatter_plot()
-
+    plot_histogram_single()
 else:
     pass
