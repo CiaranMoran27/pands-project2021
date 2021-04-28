@@ -321,7 +321,14 @@ Feature selection is an important process that is used in machine learning to ch
 
 __3.3.2 Choosing a Model__
 
-One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler models and run it on the Iris Dataset in an attempt to classify the target species. The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [Harrison 2018]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied.
+
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
+
+<br/>
+
+The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [Harrison 2018]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variables data point get closer to eachother which may to perforamce issues.
+
+<br/>
 
 In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance (Malik 2021), it was still used for investigation purposes).
 
@@ -331,11 +338,13 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 <br/>
 
-The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model.
+The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
+
+To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model.
 
 <br/>
 
-For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was undertaken and the whole  iris dataset, which was split into two parts (20:80) for model testing and training respevtively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot X for output.
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features. The data was split into two parts (20:80) for model testing and training respevtively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 6 for output.
 
 <br/>
 
