@@ -30,9 +30,9 @@
 &emsp; &emsp; 3.2.4 Correlation Analysis <br>
 &emsp; 3.3 Machine Learning <br>
 &emsp; &emsp; 3.3.1 Feature Selection <br>
+&emsp; &emsp; 3.3.2 Choosing a model <br>
 ### 4. Discussion 
 ### 5. References 
-
 
 <br/>
 <br/>
