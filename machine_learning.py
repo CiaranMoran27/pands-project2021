@@ -35,10 +35,6 @@ import mlxtend
 
 os.chdir(os.path.dirname(__file__))                                                        
 
-print(mlxtend.__version__)
-
-
-
 #[F1*] 
 def read_iris_dataset():
     iris_data_file = 'iris_data_set.txt'
@@ -107,9 +103,10 @@ def plot_histogram_single():
     sns.histplot(data=iris_df, x="sepal_width", label="Sepal Width", color="orange", bins = bin_number)
     sns.histplot(data=iris_df, x="petal_length", label="Petal Length", color="blue", bins = bin_number)
     sns.histplot(data=iris_df, x="petal_width", label="Petal Width", color="green", bins = bin_number)
-    
-    plt.title('Plot 6: Histogram of all feautres together (cm)', fontsize = 15) 
+      
+    plt.title('Plot 6: Histogram of all feautres together (cm)', fontsize = 15)  
     plt.legend()
+    plt.xlabel('')            # set x axis label to nothing
     plt.tight_layout() 
     plt.savefig('Images/' + 'plot6_histogram_allfeature' +'.png')
 

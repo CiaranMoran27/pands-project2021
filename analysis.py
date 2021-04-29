@@ -211,7 +211,7 @@ def scatter_plot():
     plt.savefig('Images/' + 'plot4_scatter_plots' +'.png')   
 
 
-    
+  
 plot_histograms_multi('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
 plot_histograms_multi('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
 plot_boxplot()

@@ -32,6 +32,8 @@
 &emsp; &emsp; 3.3.1 Feature Selection <br>
 &emsp; &emsp; 3.3.2 Choosing a model <br>
 ### 4. Discussion 
+&emsp; &emsp; 4.1 Summary <br>
+&emsp; &emsp; 4.2 Lessons learned <br>
 ### 5. References 
 
 <br/>
@@ -119,13 +121,16 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - Python 3.8.5 was used as the programming language for this data analysis project. <br/>
   - Downloaded here: **<https://www.python.org/downloads/>**.
 
-- Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. <br/>
+- Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. 
   - Downloaded here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
+  - On Windows the follow command will upgrade Anacondas to current version if needed : *python -m pip install --upgrade pip*. 
 - See figure 3 below for libraries used and their version numbers:
-  - All libraries except mlxtend are included in the andaconas 3 package. 
-  - To install  mlxtend  type 'pip install mlxtend' into the command line
-  - The 'pip install libname' method will work for individual installation of all libraries listed in Fig 3.   <br/>
+  - All libraries except mlxtend are included in the Anacondas 3 package. 
+  - On Windows the following command 'conda install -c conda-forge mlxtend' will install the package.
+  - To individually install any other package listed in Fig 3. type 'pip install 'package_name' into command line.
+     <br/>
 
+<br/>
 
 | <img src="Images/fig3_library_version.png"  width="275"/>|
 |----------|
@@ -140,6 +145,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - Repository:
   - Repository is located here: **<https://github.com/CiaranMoran27/pands-project2021>**.
   - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning>**.
+
 
 - analysis.py <br/>
   - Contains source code used to generate summary_file.txt and output plots that are written to the Images folder as .png files.
@@ -316,8 +322,7 @@ To better understand any potential relationships between the variables in the da
 
 <br/>
 
-On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases at a similar rate. Sepal length vs petal length  and sepal length vs petal width regression lines also show a positive degree of linear correlation.
-The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 10.
+On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases at a similar rate. Sepal length vs petal length  and sepal length vs petal width regression lines also show a positive degree of linear correlation. The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 10.
 
 <br/>
 
@@ -327,7 +332,7 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-Figure 10 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length Vs. petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 10 that multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. Although this does not always impy causation this will be explored further using a machine learning model.
+Figure 10 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length Vs. petal width showing the highest positive linear correlation with a value of 0.96. In addition to this a value of -0.11 shows that sepal width has low degree of negative correlation with sepal length. It is also apparent from Fig 10 that multicollinearity is at play in this dataset as the petal length and petal width features have a strong positive correlation with the sepal length feature. Although this does not always impy causation this will be explored further using a machine learning model.
 
 <br/>
 
@@ -358,7 +363,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-In addition to this the model performed best when the sepal width feature was used to solely train worst when petal width was used to solely train the model. Taking a slight backstep fromm correlation a histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, while sepal width on the otherhand appeared to overlap less with other features (See Plot 6) [F9*]. This observation would help justify why sepal width would perform better than petal width when these features were used to independantly train the KNN model.
+It was also noted that the sepal width feature was predominantly present in the higher accuracy model runs where more than 1 feaure was used to train the model. This observation was attributed to the sepal width feature being the only feature than didnt show high correlation with other features. In addition to this the model performed best when the sepal width feature was used to solely train it (circa. 96.5%), while petal width resulted in poorer model performance (circa 60%). This makes sense as being the least correlated variable one would expect sepal width to show the least overlap when plotted with the other iris featues. Plot 6 below reaffirms these findings[F9*].
 
 <br/>
 
@@ -377,6 +382,51 @@ For the last part of this project the KNN model was expored in more detail in a 
  Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
 
 <br/>
+
+### 4. Discussion
+**4.1 Summary** <br/>
+
+The key obserbations made during this investigation are listed below:
+- Data Distribtion
+  - Petal width data as a whole yielded most overlap, while sepal width yielded least (i.e better seperation).
+  - On the species level all features have a nomral distriubtion.
+  - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset.
+
+- Correlated variables (Perasons method):
+  - Petal length Vs. petal width:   high positive correlation (0.96).
+  - Sepal length Vs. sepal width:   low negative correlation (-0.11).
+  - Petal length Vs. sepal length:  high positive correlation (0.87).
+  - Petal width  Vs. sepal length:  high positive correlation (0.82).  
+  - Three high levels of pariwrise positive correlation exists.
+  - Multicolinnearity exists in the dataset as sepal length is highly correlated to petal length and petal width.
+
+- Machine Learning 
+  - Altought computationally heavy, the Exhaustive Feature Selector (EHS) is a useful wrapper method for checking model performance across all possible combinations of features in the dataset.
+  - Using EHS the The k-nearest neighbors (KNN) model showed that correlation had a negative effect on model accuracy for the iris dataset.
+  - On a full dataset (no features dropped) the KNN model has highest model accuracy at k = 4 and K = 6 to K = 25 when using the train-test-split method.
+
+
+
+
+
+
+
+
+
+
+
+
+
+**4.2 Lessons Learning** <br/>
+Before project
+
+Key takeways
+What I have 
+This project
+
+
+
+
 
 ### 5. Reference:
 
