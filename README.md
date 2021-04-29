@@ -124,7 +124,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
     See figure 3 for Anacondas 3 libraries used and their version numbers: <br/>
 
 
-| <img src="Images/fig3_library_version.png"  width="350"/>|
+| <img src="Images/fig3_library_version.png"  width="275"/>|
 |----------|
 | Fig 3. |
 
@@ -159,12 +159,16 @@ Note: any use of abbreviation *df* refers to a dataframe.
 <br/>
 
 __3.2.1 Reading in the Dataset:__ <br/>
-This was achieved using the *read_csv()* method of the pandas library [FX*]. This method also works on text files as one can declare the delimiter value that separates each data field, which in this case is a comma. 
+This was achieved using the *read_csv()* method of the pandas library [F1*]. This method also works on text files as one can declare the delimiter value that separates each data field, which in this case is a comma. 
 
 <br/>
 
-__3.2.2 Analysing the Dataframet:__ <br/>
-The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n)* method of the pandas library [FX*]. This method is useful as it allows the user to look at a subset of the data to deduce what columns are relevant and to perform quick checks to see if data transformations are performing as expected. It was noticed that the column headers were indexed from 0-3 by pandas as the Dataset that was downloaded did not include column names. Based on these findings the correct column names were passed as a list to the *df.columns* method, see figure 3.
+__3.2.2 Analysing the Dataframe:__ <br/>
+For this investigation a *Summary* Class was created in *analysis.py* to process summary objects that were instantiated throughout this investigation [F2*]. Within this class there is an instance method that writes the summary objects to a summary text file called summary_file.txt [F3*]. Note: In the proceeding investigation Fig.4 to Fig.10 were generated and written to the text file using using method.
+
+<br/>
+
+The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n)* method of the pandas library. This method is useful as it allows the user to look at a subset of the data to deduce what columns are relevant and to perform quick checks to see if data transformations are performing as expected. It was noticed that the column headers were indexed from 0-3 by pandas as the Dataset that was downloaded did not include column names. Based on these findings the correct column names were passed as a list to the *df.columns* method, see figure 4.
 
 <br/>
 
@@ -172,24 +176,23 @@ The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n
 |----------|
 | Fig 4.|
 
-
 <br/>
 
-As mentioned in Section 2.1 the Iris dataset is made up of 150 rows and 5 columns. Like many applications in pandas the array size can be confirmed in more than one way, for example using the *df.shape* method or alternatively one can deduce the axes lengths using this code [FX*]:
+As mentioned in Section 2.1 the Iris dataset is made up of 150 rows and 5 columns. Like many applications in pandas the array size can be confirmed in more than one way, for example using the *df.shape* method or alternatively one can deduce the axes lengths using this code:
 ``` Python
 shape = (len(iris_df.axes[1]),len(iris_df.axes[0]))   
 ```
 <br/>
 
-The pandas library provides aggregation functions to group a column and perform many operations such as sum, count and mean. This functionality was used to confirm that the dataset was made up three different species, each contributing 50 instances to the 150 total row count (See Fig 4 below). The operation was performed using the following syntax: *df.groupby('species').size()* [FX*].
+The pandas library provides aggregation functions to group a column and perform many operations such as sum, count and mean. This functionality was used to confirm that the dataset was made up three different species, each contributing 50 instances to the 150 total row count (See Fig 5 below). The operation was performed using the following syntax: *df.groupby('species').size()*.
 
 <br/>
 
-Having looked at the first 5 rows of the dataset assumptions were made that the sepal legth, sepal width, petal length and petal width columns were floating point numbers and the species column was of type string. These assumptions were tested by passing the dataframe into the pandas *dtypes* function. The output showed that the four dimensional variable columns were of type 'float64' and the species class column of type 'object' (see Fig. 5 below [FX*]). Moffitt 2018 explained this by describing how pandas stores datatypes in a categorical way and buckets type str and mix data types into the 'object' category.<br/> 
+Having looked at the first 5 rows of the dataset assumptions were made that the sepal legth, sepal width, petal length and petal width columns were floating point numbers and the species column was of type string. These assumptions were tested by passing the dataframe into the pandas *dtypes* function. The output showed that the four iris feature columns were of type 'float64' and the species class column of type 'object' (see Fig. 6 below). Moffitt 2018 explained this by describing how pandas stores datatypes in a categorical way and buckets type str and mix data types into the 'object' category.<br/> 
 
 <br/>
 
-Pandas and Numpy work effectively together to help clean dataframes, for example the *isnull()* function is used to detect missing values in an array. This function returns a boolean object where missing values get mapped to True and non-missing values get mapped to False [8]. It is possible to sum the True values from the boolean array by applying the *sum()* function to quickly check if a dataset has any null values. This operation was performed on the Iris dataframe and yielded no null values via the following syntax: *df.groupby('species').size()*, see the output of this operation in Fig. 6 below [FX*].<br/> 
+Pandas and NumPy work effectively together to help clean dataframes, for example the *isnull()* function is used to detect missing values in an array. This function returns a boolean object where missing values get mapped to True and non-missing values get mapped to False [8]. It is possible to sum the True values from the boolean array by applying the *sum()* function to quickly check if a dataset has any null values. This operation was performed on the Iris dataframe and yielded no null values via the following syntax: *df.groupby('species').size()*, see the output of this operation in Fig. 7 below.<br/> 
 
 <br/>
 
@@ -207,7 +210,7 @@ If one was dealing with larger datasets it would be unlikely that a null count o
 __3.2.3 Descriptive Statistical Analysis:__ <br/>
 
 __Histogram Analysis__<br/>
-Histograms are considered simple plots but can give very useful visualisations on the distribution of the data. To gain more insight into the Iris data a histogram of each feature (i.e dependant variable) was plotted [F1*]. Each dependent variable has two plots, one consists of the variables with no grouping (blue plots) and the second consists of the variables grouped by species (multi-coloured plots), see Plot 1 below for petal variable plots.
+Histograms are considered simple plots but can give very useful visualisations on the distribution of the data. To gain more insight into the Iris data a histogram of each feature was plotted [F4*]. Each dependent variable has two plots, one consists of the variables with no grouping (blue plots) and the second consists of the variables grouped by species (multi-coloured plots), see Plot 1 below for petal variable plots.
 
 <br/>
  
@@ -221,7 +224,7 @@ Histograms are considered simple plots but can give very useful visualisations o
 
 <br/>
 
-- __Grouped Petal Data__: The grouped histograms for petal length and petal width clearly show that for these features the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. Based on these observations one could speculate that the petal attributes could play an important role in any attempt to classify the setosa class through any supervised machine learning model. See Plot 2 below for sepal feature histograms.
+- __Grouped Petal Data__: The grouped histograms for petal length and petal width clearly show that for these features the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. See Plot 2 below for a sepal histograms.
 
 <br/>
 
@@ -241,7 +244,7 @@ It was possible also possible to gain insight into data distributions via two pa
 - **df.skew()**: Measures how symmetric a data distrubition is. The Function computes the "skewness" of the data present in a given axis of the DataFrame object. A skew value between -0.5 and 0.5 is considered symmetrical.<br/>
 - **series.kurtosis()**: Measures the heaviness of the distribution tails. The function computes the tail volumne difference relative to a guassian distribution curve. A kurtosis value of 0 is considered normal distribution, negative inidicates a flat thin-tailed distribution, positive indicates pointy fat-tailed distribution curves and a kurtosis value that exceeds absolute 3 indicates Excess Kurtosis.<br/>
 
-These two distrubtion functions were used to further analyse the ungrouped iris features (see Fig 7 below [FX*]). The results showed that for iris features a degree of symmetry exists in the data distributions as all skew values lie between -0.5 and 0.5. The sepal length and sepal width attribues have a slightly right learning skew whearas the petal length and petal width attributes data curve is leaning slightly to the left. All the kurtosis values for this datset do not exceed absolute 3, which indicates that for future sample selection there would be a low probability of obtaining an extreme outlier relative to the normal distribution curve. <br/>
+These two distrubtion functions were used to further analyse the ungrouped iris features (see Fig 8 below). The results showed that for iris features a degree of symmetry exists in the data distributions as all skew values lie between -0.5 and 0.5. The sepal length and sepal width attribues have a slightly right learning skew whearas the petal length and petal width attributes data curve is leaning slightly to the left. All the kurtosis values for this datset do not exceed absolute 3, which indicates that for future sample selection there would be a low probability of obtaining an extreme outlier relative to the normal distribution curve. <br/>
 
 <br/>
 
@@ -251,7 +254,7 @@ These two distrubtion functions were used to further analyse the ungrouped iris 
 <br/>
 
 **describe() Function**<br/>
-The pandas *describe()* function is a very useful statistical summary method that can be applied to a given dataset. In its standard form this function returns the min, max, mean, median, 25th percentile, 75th percentile and standard deviation of the data. The Iris dataset was passed to this function, see Fig X below for statistical summary of the 4 attributes in the Iris Dataset [FX*]. 
+The pandas *describe()* function is a very useful statistical summary method that can be applied to a given dataset. In its standard form this function returns the min, max, mean, median, 25th percentile, 75th percentile and standard deviation of the data. The Iris dataset was passed to this function, see Fig. 9 below for statistical summary of the 4 attributes in the Iris Dataset. 
 
 <br/>
 
@@ -261,13 +264,13 @@ The pandas *describe()* function is a very useful statistical summary method tha
 
 <br/>
 
-The following observations were drawn from Fig 8:
+The following observations were drawn from Fig. 9:
 
 - **Mean:** <br/>
   Sepal length > petal length > sepal width > petal width.<br/>
  
 - **Standard Deviation:** <br/>
-  Petal length samples shows the highest deviation from the mean. Sepal width samples show the lowest deviation from the mean.<br/>
+  Petal length samples shows the highest deviation from the mean. Sepal width shows the lowest deviation from the mean.<br/>
   
 - **Min / Max range:**<br/>
   Overlap between dimensional attributes exists.<br/>
@@ -279,7 +282,7 @@ The following observations were drawn from Fig 8:
 <br/>
 
 __Boxplot Analysis:__ <br/>
-In addition to the histogram already performed it was considered necessary to visualise the data distriubtion with the same y-axis scaling for each iris feature across all species. The boxplot came to mind as a suitable plotting method as it displays the data distribution in a standardized way and yields information on the symmetry and outliers in the dataset (see Plot 3 [FX*]). 
+In addition to the histogram already performed it was considered necessary to visualise the data distriubtion with the same y-axis scaling for each iris feature across all species. The boxplot came to mind as a suitable plotting method as it displays the data distribution in a standardized way and yields information on the symmetry and outliers in the dataset (see Plot 3 [F5*]). 
 
 
 <br/>
@@ -288,19 +291,20 @@ In addition to the histogram already performed it was considered necessary to vi
 
 The following observations were drawn from Plot 3:
 - Data Distribution:
-  - Petal width data doesn’t overlap with other features across all species. This observation confirms that a machine learning classification model could identify this attribute while retaining all other iris features in the model.
-  - Petal length data range is the largest, especially for the virginica species. 
+  - Petal length and sepal length data range appears the largest, which can be confirmed when comparing to the standard deviaton from Fig. 9.
+  - As a whole there is dimenstional overlap of features, with the least overap observed for Setosa across all features.
+  - Petal length and sepal length data shows the most overlap, while petal width and sepal width show less overlap than other features. 
   - Although the skew model indicated that petal width data (un-grouped) had a skew value nearest to zero, it can be observed in the boxplot that the distribution appears negatively skewed for the Versicolour species on its own. This observation was made as the median is closer to the first quartile while the lower whisker is shorter than that of the top whisker. This can also be observed in the multi-coloured histogram in Plot 1. 
 - Outliers:
   - The setosa species has four outliers, two for petal length and two for petal width features. 
   - The Virginica species also has three outliers, one for sepal length and two for sepal width.
-  - Having analysed the outliers from the boxplot it became apparent that one can deduce outlier information from a histogram also. If a large number of bins are set in the histogram the outlier will be more  obvious, however in this case where a medium value of bins were selected one can see potential outliers where there is a large difference between the bin height and the probability density curve.(see fig X petal length).
+  - Having analysed the outliers from the boxplot it became apparent that one can deduce outlier information from a histogram also. If a large number of bins are set in the histogram the outlier will be more  obvious, however in this case where a medium value of bins were selected one can see potential outliers where there is a large difference between the bin height and the probability density curve.(see Setosa species in plot 1).
 
 <br/>
 
 __3.2.4 Correlation Analysis__<br/>
 
-To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [3]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
+To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below) [F6*]. It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [3]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
 
 <br/>
 
@@ -311,7 +315,7 @@ To better understand any potential relationships between the variables in the da
 <br/>
 
 On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases at a similar rate. Sepal length vs petal length  and sepal length vs petal width regression lines also show a positive degree of linear correlation.
-The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 9 [FX*].
+The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 10.
 
 <br/>
 
@@ -321,29 +325,28 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-Figure 9 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length and petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 9 that Multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. The effect of this will be explored further using a machine learning model.
+Figure 10 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length Vs. petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 910 that multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. Although this does not always impy causation this will be explored further using a machine learning model.
 
 <br/>
 
 __3.3 Machine Learning__ <br>
 
 __3.3.1 Feature Selection__
-Feature selection is an important process that is used in machine learning to choose the features of the dataset that best describe the target and if needed drop variables that dont describe the target output. Asaithambi 2018 describes how models with higher levels of dimensionality can struggle as training time increases exponentially with number of features and the model has a higher risk of overfitting. As the Fisher Iris dataset has a low number of variables one could presume that dimensionality reduction of the dataset would be less important when feeding the data to a machind learning model, however this avenue will be explored in more detail. 
+Feature selection is an important process that is used in machine learning to choose the features of the dataset that best describe the target and if needed drop variables that dont describe the target output. Asaithambi 2018 describes how models with higher levels of dimensionality can struggle as training time increases exponentially with number of features and the model has a higher risk of overfitting. It was interesting to consider how dimensionality reduction may effect smaller datasets and how a chosen model would perform. This will be explored further in the next section.
 
 <br/>
 
 __3.3.2 Choosing a Model__
 
-
-One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
-
-<br/>
-
-The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [10]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variables data point get closer to eachother which may to perforamce issues.
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
 
 <br/>
 
-In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
+The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [10]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variable data points get closer to eachother which may to perforamce issues for classification.
+
+<br/>
+
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [F8*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
 
 <br/>
 
@@ -353,16 +356,15 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. To help  explain this a new histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, sepal width on the otherhand appeared to overlap less with other features (See Plot 6). This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
+To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. Taking a slight backstep fromm correlation a histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, while sepal width on the otherhand appeared to overlap less with other features (See Plot 6) [F9*]. This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
 
 <br/>
 
- <img src="Images/plot6_histogram_allfeature.png"  width="600"/>|
+ <img src="Images/plot6_histogram_allfeature.png"  width="600"/>
 
 <br/>
 
-
-For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features [F10*]. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
 
 <br/>
 
@@ -370,33 +372,92 @@ For the last part of this project the KNN model was expored in more detail in a 
 
  <br/>
 
- Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to 25. This ability to predict species to 100% accuracy is impressive even for a small dataset such as the Fisher Iris Dataset. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
+ Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
 
 <br/>
 
 ### 5. Reference:
 
 [1]. Asaithambi, S, 2018, Why, How and When to apply Feature Selection, viewed 26 April 2021, **<https://towardsdatascience.com/why-how-and-when-to-apply-feature-selection-e9c69adfabf2>.** <br/>
+
+<br/>
+
 [2]. Brownlee, J, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021,<br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/>.**<br/>
+
+<br/>
+
 [3]. Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
+
+<br/>
+
 [4]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
+
+<br/>
+
 [5]. Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
+
+<br/>
+
 [6]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
+
+<br/>
+
 [7]. Fernandes, M 2016, 'From Three Fishers: Statistician, Geneticist and Person to Only One Fisher: The Scientist', Journal of Biometrics & Biostatistics, vol. 7, no. 1, pp. 1, DOI: 10.4172/2155-6180.1000282.<br/>
+
+<br/>
+
 [8]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
+
+<br/>
+
 [9]. Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021,<br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>.**<br/>
-[10].Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**
+
+<br/>
+
+[10].Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**<br/>
+
+<br/>
+
 [11]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
+
+<br/>
+
 [12]. Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>.**<br/>
+
+<br/>
+
 [13]. Malik, U, 2021, Applying Wrapper Methods in Python for Feature Selection, Stack Abuse, **<https://stackabuse.com/applying-wrapper-methods-in-python-for-feature-selection/>.**<br/>
+
+<br/>
+
 [14]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
-let-us-understand-the-correlation-matrix-and-covariance-matrix-d42e6b643c22>.**<br/>
+
+<br/>
+
 [15]. Sharma, R, 2019, Gaussian distribution, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>.**<br/>
+
+<br/>
+
 [16]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
+
+<br/>
+
 [17]. Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021,<br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>.**<br/>
+
+<br/>
+
 [18]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<https://archive.ics.uci.edu/ml/datasets/iris/>.**<br/>
-[19]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>**<br/>
+
+<br/>
+
+[19]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021,  **<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>.**<br/>
+
+<br/>
+
 [20]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>.**<br/>
+
+<br/>
+
 [21]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
 
 

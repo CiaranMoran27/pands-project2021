@@ -1,3 +1,25 @@
+# This module has 1 Class & 5 functions [FN*..]:
+# Author: Ciaran Moran
+
+#[F1*]: read_iris_dataset()
+        # reads in iris_data_set.txt & converts to dataframe
+
+#[F2*]: *Summary* Class 
+        # creates summary values for the .txt file
+
+        #[F3*]: write_function()
+        # instance method of Class that writes object to summary_file.txt
+
+#[F4*]: plot_histograms_multi()
+        # writes 8 histograms plots (2 figures) to Images Folder
+
+#[F5*]: plot_boxplot()
+        # writes 1 boxplot to Images Folder
+
+#[F6*]: scatter_plot()
+        # writes 6 scatter plots (1 figure) to Images Folder
+
+
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -6,7 +28,6 @@ import matplotlib.pyplot as plt
 import os 
 
 os.chdir(os.path.dirname(__file__))                                                              # change current directory to that of this module
-
 
 
 #[F1*]    
@@ -19,8 +40,10 @@ def read_iris_dataset():
 iris_df = read_iris_dataset()                                                                    # store dataframe in iris_df variable
 
 
+
 #[F2*]
-#Summary class which creates summary values for the .txt file and implements a write function using the classes values
+#Summary class which creates summary values for the .txt file and implements 
+# a write function using the classes values
 class Summary:  
     # constructor __init__ method:
         # called when object is Instantiated

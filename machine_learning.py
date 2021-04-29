@@ -1,20 +1,22 @@
-# This module has 3 functions:
+# This module has 5 functions [FN*..]:
 # Author: Ciaran Moran
 
-#function 1: read in the iris dataset
+#[F1*] read in the iris dataset()
+        # same function has analysis.py file -> in future I would make a new file.py 
+        # with read_iris_dataset() function and import it
 
-#function 2: define_dataframes
-    # seperates the df in two numpy arrays (1x species, 1x features)
-    # passes arrays KNN machine learning functions.
+#[F7*] define_dataframes()
+        # seperates the df in two numpy arrays (1x species, 1x features)
+        # passes arrays to KNN machine learning functions.
 
-# function 3: knn_model_k_single
-    # Performs exhaustive feature selection on the KNeighborsClassifier method and outputs plot 
+#[F8*] knn_model_k_single()
+        # Performs exhaustive feature selection with the KNeighborsClassifier model and outputs plot 
 
-# function 4: plot_histogram_single
-    # wrties histogram to Images folder (was used in machine learning section of README) 
+#[F9*] plot_histogram_single()
+        # wrties histogram to Images folder (was used in machine learning section of README) 
 
-# function 5: knn_model_k_multiple
-    # Uses train test split method to train KNeighborsClassifier method from k=1 to k=25 and outputs plot 
+#[F10*] knn_model_k_multiple()
+        # Uses train test split method to train KNeighborsClassifier method from k=1 to k=25 and outputs plot 
 
 
 import pandas as pd
@@ -23,8 +25,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os 
 
-     
-# machine learning libraries
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
@@ -33,7 +33,8 @@ from mlxtend.feature_selection import ExhaustiveFeatureSelector as EFS
 
 os.chdir(os.path.dirname(__file__))                                                        
 
-#[F1*]
+
+#[F1*] 
 def read_iris_dataset():
     iris_data_file = 'iris_data_set.txt'
     iris_df = pd.read_csv(iris_data_file, delimiter = ',', header = None)                        
@@ -77,7 +78,7 @@ def knn_model_k_single(iris_data, iris_target_numeric):
 
     # Create bar chart on mean performance of each subset of features
     fig, ax = plt.subplots(figsize=(12,9))                                                  # create figure & axes
-    plt.title('Plox 5: KNeighborsClassifier Model Accuracy', fontsize = 20)                 # add title   
+    plt.title('Plot 5: KNeighborsClassifier Model Accuracy', fontsize = 20)                 # add title   
     
     y_pos = np.arange(len(df))                                                              # stores evenly spaced values that total the length of the df 
     ax.barh(y_pos, df['avg_score'], xerr=df['std_dev'])                                     # sets chart parameters 
@@ -99,7 +100,7 @@ def plot_histogram_single():
     
     sns.histplot(data=iris_df, x="sepal_length", label="Sepal Length", color="red", bins = bin_number)
     sns.histplot(data=iris_df, x="sepal_width", label="Sepal Width", color="orange", bins = bin_number)
-    sns.histplot(data=iris_df, x="petal_length", label="Petal Width", color="blue", bins = bin_number)
+    sns.histplot(data=iris_df, x="petal_length", label="Petal Length", color="blue", bins = bin_number)
     sns.histplot(data=iris_df, x="petal_width", label="Petal Width", color="green", bins = bin_number)
     
     plt.title('Plot 6: Histogram of all feautres together (cm)', fontsize = 15) 
@@ -134,7 +135,7 @@ def knn_model_k_multiple(iris_data, iris_target_numeric):
         score_list.append(metrics.accuracy_score(y_test, y_pred))                           # appends accuracy scores to score_list
 
     plt.clf()                                                                            # Clear figure
-    plt.title('Plox 7: KNeighborsClassifier Model % Accuracy', fontsize = 25)            # add title
+    plt.title('Plot 7: KNeighborsClassifier Model % Accuracy', fontsize = 25)            # add title
     ax = sns.lineplot(x = k_range, y = score_list, color = 'blue')                       # seaborn line plot
     ax.set_xlabel('K value (Number of Neighbours)', fontsize=20)                         # set xlabel and fontsize
     ax.set_ylabel('% Accuracy / 100', fontsize=20)                                       # set ylabel and fontsize
