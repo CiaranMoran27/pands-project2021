@@ -123,9 +123,10 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Download here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
     See figure 3 for Anacondas 3 libraries used and their version numbers: <br/>
 
-| <img src="Images/fig3_library_version.png."  width="250"/>|
+
+| <img src="Images/fig3_library_version.png"  width="250"/>|
 |----------|
-| Fig 3.|
+| Fig 3. |
 
 <br/>
 
