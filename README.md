@@ -49,6 +49,7 @@ The projects main aims are to achieve the following through incremental progress
   - Output a summary of each variable to a single text file.
   - Save a histogram of each variable to png files.
   - Save scatter plots of each pair of variables to png files.
+- Explore a supervised machine learning model on the dataset.
 
 <br/>
 
@@ -90,7 +91,7 @@ Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in L
 
 **2.3 Linear Discriminant Analysis and Machine learning**<br/>
 
-Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [Gonzalez, J, 2018] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions which are described by Brownlee (2016):
+Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [Gonzalez, J, 2018] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions [2]:
 1.	The data distribution is Gaussian, i.e is shaped like a bell curve.
 2.	Each class has the same covariance matrix.
 
@@ -118,13 +119,15 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - Python 3.8.5 was used as the programming language for this data analysis project. <br/>
   - Downloaded here: **<https://www.python.org/downloads/>**.
 
-- Anacondas was downloaded for its many useful libraries included in the package. <br/>
+- Anacondas 3 version 3 was downloaded (version 2020.11) for its many useful libraries included in the package. <br/>
   - Download here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
-    Main libraries used: <br/>
-    - numpy 1.19.2 <br/>
-    - pandas 1.1.3 <br/>
-    - matplotlib 3.3.2 <br/>
-    - seaborn 0.11.0 <br/>
+    See figure 3 for Anacondas 3 libraries used and their version numbers: <br/>
+
+| <img src="Images/fig3_library_version.png."  width="250"/>|
+|----------|
+| Fig 3.|
+
+<br/>
 
 - Fisher Iris Dataset:
   - This was downloaded here : **<http://archive.ics.uci.edu/ml/datasets/Iris>**. <br/>
@@ -134,7 +137,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Repository is located here: **<https://github.com/CiaranMoran27/pands-project2021>**.
   - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning>**.
 
-- analysis.py<br/>
+- analysis.py <br/>
   - This Python module contains the source code used to generate summary_file.txt and output plots saved to Images folder as .png files.
   - It Conisits of numerous functions that will be referenced throughout the README file. <br/>
   - Code References will be located in the module at the top of each function and denoted via [*1], [*2],[*n..] etc 
@@ -164,9 +167,9 @@ The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n
 
 <br/>
 
-| <img src="Images/fig3_df_head(5).png"  width="525"/>|
+| <img src="Images/fig4_df_head(5).png"  width="525"/>|
 |----------|
-| Fig 3.|
+| Fig 4.|
 
 
 <br/>
@@ -189,9 +192,9 @@ Pandas and Numpy work effectively together to help clean dataframes, for example
 
 <br/>
 
-<img src="Images/fig4_species_groupby.png"  width="165"/>|<img src="Images/fig5_data_types.png"  width="190"/> | <img src="Images/fig6_null_count.png"  width="180"/>
+<img src="Images/fig5_species_groupby.png"  width="165"/>|<img src="Images/fig6_data_types.png"  width="190"/> | <img src="Images/fig7_null_count.png"  width="180"/>
 :-------------------------:|:-------------------------:|:-------------------------:
-Fig. 4  |  Fig. 5  |  Fig. 6  
+Fig. 5  |  Fig. 6  |  Fig. 7  
  
   
 <br/>
@@ -241,9 +244,9 @@ These two distrubtion functions were used to further analyse the ungrouped iris 
 
 <br/>
 
-| <img src="Images/fig7_skew_kurtosis_nohue.png"  width="400"/>|
+| <img src="Images/fig8_skew_kurtosis_nohue.png"  width="400"/>|
 |----------|
-| Fig 7.|
+| Fig 8.|
 <br/>
 
 **describe() Function**<br/>
@@ -251,9 +254,9 @@ The pandas *describe()* function is a very useful statistical summary method tha
 
 <br/>
 
-| <img src="Images/fig8_summary_traits.png"  width="525"/>|
+| <img src="Images/fig9_summary_traits.png"  width="525"/>|
 |----------|
-| Fig 8.|
+| Fig 98.|
 
 <br/>
 
@@ -296,7 +299,7 @@ The following observations were drawn from Plot 3:
 
 __3.2.4 Correlation Analysis__<br/>
 
-To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). As detailed by Brownlee 2018, it is important to discover and quantify the degree to which variabeles are depenadnt on eachother. He then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
+To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [4]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
 
 <br/>
  <!--- Plot 4 --->
@@ -311,9 +314,9 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-| <img src="Images/fig9_correlation_statistics.png"  width="525"/>|
+| <img src="Images/fig10_correlation_statistics.png"  width="525"/>|
 |----------|
-| Fig 9.|
+| Fig 10.|
 
 <br/>
 
@@ -375,7 +378,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 [1]. Asaithambi, S, 2018, Why, How and When to apply Feature Selection, viewed 26 April 2021, **<https://towardsdatascience.com/why-how-and-when-to-apply-feature-selection-e9c69adfabf2>.** <br/>
 [2]. Brownlee, J, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021,<br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/>.**<br/>
 [3]. Brownlee, J, 2018, A Gentle Introduction to k-fold Cross-Validation, viewed 27 April 2021,<br/> **<https://machinelearningmastery.com/k-fold-cross-validation/.>**.<br/>
-[4] Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
+[4]. Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
 [5]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
 [6]. Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
 [7]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>

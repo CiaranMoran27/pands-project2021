@@ -20,11 +20,11 @@ iris_df = read_iris_dataset()                                                   
 
 
 #[F2*]
-class summary_creator:  
+#Summary class which creates summary values for the .txt file and implements a write function using the classes values
+class Summary:  
     # constructor __init__ method:
         # called when object is Instantiated
-        # allows summary_creator class to initialise its attributes
-
+        # Summary class initialisation
     def __init__(self, shape, data_types, null_count, species_count, desc_all_species, df_head, skewness_all_species, kurtosis_all_species, correlation):
         self.shape = shape
         self.data_types = data_types
@@ -35,47 +35,39 @@ class summary_creator:
         self.skewness_all_species = skewness_all_species
         self.kurtosis_all_species = kurtosis_all_species
         self.correlation = correlation
-    
 
+    #[F3*]
     # instance method
-        # calls object attributes relevant to summary
+        # function in Summary class to write class variables
         # writes the summaries (w = overwrite) to text file, operation will make file if doesnt exist
     def write_function(self):
         with open('summary_file.txt', 'w') as f: 
-
+            pd.set_option("display.precision", 2)
             spacing_variable = ('\n' * 3)
             f.write('Fisher Iris Dataset Summary' + spacing_variable)
-            f.write('Number of columns = {} \nNumber of rows = {}{}'.format(summary_creator_val.shape[0],summary_creator_val.shape[1],spacing_variable)) 
-            f.write('Column name:  Pandas dtypes: \n'+ str(summary_creator_val.data_types) + spacing_variable) 
-            f.write('Column name:  Null Count: \n'+ str(summary_creator_val.null_count) + spacing_variable)
-            f.write('Row Count per Species: \n'+ str(summary_creator_val.species_count) + spacing_variable)          
-            f.write(' '*17 + 'First 5 rows of the Dataset\n' + str(summary_creator_val.df_head)  + spacing_variable)
-            f.write(' '*17 + 'All Species : Summary Statistics \n' + str(summary_creator_val.desc_all_species) + spacing_variable)
-            f.write('Distribution Skewness \n' + str(summary_creator_val.skewness_all_species) + spacing_variable)
-            f.write('Distribution Kurtosis \n' + str(summary_creator_val.kurtosis_all_species) + spacing_variable)
-            f.write(' '*17 + 'All Species : Correlation Statistics \n' + str(summary_creator_val.correlation) + spacing_variable)
+            f.write('Number of columns = {} \nNumber of rows = {}{}'.format(self.shape[0],self.shape[1],spacing_variable)) 
+            f.write('Column name:  Pandas dtypes: \n'+ str(self.data_types) + spacing_variable) 
+            f.write('Column name:  Null Count: \n'+ str(self.null_count) + spacing_variable)
+            f.write('Row Count per Species: \n'+ str(self.species_count) + spacing_variable)          
+            f.write(' '*17 + 'First 5 rows of the Dataset\n' + str(self.df_head)  + spacing_variable)
+            f.write(' '*17 + 'All Species : Summary Statistics \n' + str(self.desc_all_species) + spacing_variable)
+            f.write('Distribution Skewness \n' + str(self.skewness_all_species) + spacing_variable)
+            f.write('Distribution Kurtosis \n' + str(self.kurtosis_all_species) + spacing_variable)
+            f.write(' '*17 + 'All Species : Correlation Statistics \n' + str(self.correlation) + spacing_variable)
 
-
-#[F3*]
-def summary_variables():                                                                     # setting summary variables via pandas methods
-        shape = (len(iris_df.axes[1]),len(iris_df.axes[0]))                                  # length/width of dataframe
-        data_types = iris_df.dtypes                                                          # data-types of columns                                                           
-        null_count = iris_df.isnull().sum()                                                  # True for NaN / blank values
-        species_count = iris_df.groupby('species').size()                                    # Computes group sizes                                 
-        desc_all_species = iris_df.describe()                                                # dataframe summary 
-        df_head = iris_df.head(5)                                                            # first 5 rows of dataframe
-        skewness = iris_df.skew()                                                            # returns skew of all iris features                        
-        kurtosis = iris_df.kurtosis()                                                        # returns kurtosis of all iris features
-        correlation = iris_df.corr()                                                         # Compute pairwise Pearsons correlation of columns
-        pd.set_option("display.precision", 2)                                                # display data to 2 decimal places
-
-        # Instantiate an object of type summary_creator & return object
-        summary_creator_val = summary_creator(shape, data_types, null_count, species_count, 
-        desc_all_species, df_head, skewness, kurtosis, correlation)
-        return summary_creator_val
-
-summary_creator_val = summary_variables()                                               # set variable to object (via calling function and returning object)
-summary_creator_val.write_function()                                                    # call write_function() instance method of summary_creator class
+# creates an instance of Summary class which passes in relevant variables and writes to .txt file
+summary_data = Summary(
+    (len(iris_df.axes[1]),len(iris_df.axes[0])),                                        # length/width of dataframe
+    iris_df.dtypes,                                                                     # data-types of columns                                                           
+    iris_df.isnull().sum(),                                                             # True for NaN / blank values
+    iris_df.groupby('species').size(),                                                  # Computes group sizes                                 
+    iris_df.describe(),                                                                 # dataframe summary 
+    iris_df.head(5),                                                                    # first 5 rows of dataframe
+    iris_df.skew(),                                                                     # returns skew of all iris features                        
+    iris_df.kurtosis(),                                                                 # returns kurtosis of all iris features
+    iris_df.corr(),                                                                     # Compute pairwise Pearsons correlation of columns
+)
+summary_data.write_function() 
 
 
 
@@ -85,30 +77,36 @@ summary_creator_val.write_function()                                            
 #     https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn
 # [2] Waskom, M, 2021, seaborn.histplot, viewed 20 April 2021, https://seaborn.pydata.org/generated/seaborn.histplot.html.
 def plot_histograms_multi(filename, plot_name, chart_title, x_series_one, x_series_two):  
+    
+    plt.clf()  # clear current figure 
 
-    bin_number = 15
-
+    # define fig and axex as plt.subplot() function
+    # plt.subplots returns a figure and set of subplots
     fig, axes = plt.subplots(2, 2, figsize=(14, 14))
-    fig.suptitle('{}: Histogram of {} variables (cm)'.format(plot_name,chart_title),fontsize = 25)
-
+ 
+    # generate 4 plots in the defined subplots locations
+    bin_number = 15
     sns.histplot(ax=axes[0, 0], data = iris_df, x = x_series_one, bins = bin_number, legend = False, kde = True, element = "step")
     sns.histplot(ax=axes[0, 1], data = iris_df, x = x_series_two, bins = bin_number, legend = False, kde = True, element ="step")
     sns.histplot(ax=axes[1, 0], data = iris_df, x = x_series_one, bins = bin_number, legend = False, hue = 'species', kde = True, element ="step") 
     plot_four = sns.histplot(ax=axes[1, 1], data=iris_df, x = x_series_two, bins = bin_number, hue = 'species', kde = True, element = "step") 
     
-    plt.setp(plot_four.get_legend().get_texts(), fontsize='20') # for legend text
-    plt.setp(plot_four.get_legend().get_title(), fontsize='22') # for legend title
-    
-    for ax in plt.gcf().axes:
-        x = ax.get_xlabel()
-        y = ax.get_ylabel()
-        ax.set_xlabel(x, fontsize=20)
-        ax.set_ylabel(y, fontsize=0)
-
-        plt.setp(ax.get_xticklabels(), fontsize=15)  
-        plt.setp(ax.get_yticklabels(), fontsize=15)  
+    # set figure title and call get_legend() on plot_four
+    fig.suptitle('{}: Histogram of {} variables (cm)'.format(plot_name,chart_title),fontsize = 25) 
+    plt.setp(plot_four.get_legend().get_texts(), fontsize='20') # plot four: return get_lenged() into artist object & call get_texts() to change text fontsize
+    plt.setp(plot_four.get_legend().get_title(), fontsize='22') # plot four: return get_lenged() into artist object & call get_title() to change title fontsize
+   
+    # reformat plot
+    for ax in plt.gcf().axes:                                   # for subplots in figure
+        x = ax.get_xlabel()                                     # define x_label as x
+        y = ax.get_ylabel()                                     # define y_label as y
+        ax.set_xlabel(x, fontsize=20)                           # set xlabel to x variable and alter fontsize
+        ax.set_ylabel(y, fontsize=0)                            # set xlabel to y variable and hide labels            
+                                                                
+        plt.setp(ax.get_xticklabels(), fontsize=15)             # return xticklabels() into artist object and change fontsize
+        plt.setp(ax.get_yticklabels(), fontsize=15)             # return yticklabels() into artist object and change fontsize           
       
-    fig.tight_layout() 
+    fig.tight_layout()                                          # optimise fit of subplots to figure
     plt.savefig('Images/' + filename +'.png')
  
 
@@ -118,54 +116,61 @@ def plot_histograms_multi(filename, plot_name, chart_title, x_series_one, x_seri
 # [1] C, J, 2020, Create a single legend for multiple plot in matplotlib, seaborn, stack overflow, viewed 21 April 2021, 
 #     https://stackoverflow.com/questions/62252493/create-a-single-legend-for-multiple-plot-in-matplotlib-seaborn.
 # [2] Waskom, M, 2021, seaborn.boxplot, viewed 21 April 2021, https://seaborn.pydata.org/generated/seaborn.boxplot.html.
-
-
-
 def plot_boxplot():
-    fig, axes = plt.subplots(1,4, figsize=(26, 14))
-    fig.suptitle('Fig 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30)
+    plt.clf() 
+    fig, axes = plt.subplots(1,4, figsize=(26, 14)) 
 
     sns.boxplot(ax=axes[0], x = iris_df["species"], y = iris_df["petal_length"], data = iris_df, width=0.75)
     sns.boxplot(ax=axes[1], x=iris_df["species"], y=iris_df["petal_width"], data = iris_df, width=0.75)
     sns.boxplot(ax=axes[2], x=iris_df["species"], y=iris_df["sepal_length"], data = iris_df, width=0.75)
     sns.boxplot(ax=axes[3], x=iris_df["species"], y=iris_df["sepal_width"], data  =iris_df, width=0.75)
 
-    legend_labels = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
-    setosa = mpatches.Patch(color='steelblue')
+
+    # define a list of species names  
+    # call Patch method frim mpathces lib. and set colour                            
+    legend_labels = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']      
+    setosa = mpatches.Patch(color='steelblue')                               
     versi = mpatches.Patch(color='darkorange')
     virgi = mpatches.Patch(color='green')
 
-    plt.legend(title = False, labels=legend_labels,
+    # plot legend and use lenged_label list as handles
+    plt.legend(title = False, labels=legend_labels,                        
               handles=[setosa, versi, virgi], bbox_to_anchor=(-0.05, 1.09),
               fancybox=False, shadow=False, ncol=3, loc='upper right', fontsize = 25)
-
+    
+    fig.suptitle('Fig 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30) 
+    
     for ax in plt.gcf().axes:  
         x = ax.get_xlabel()
         y = ax.get_ylabel()
-        ax.set_xlabel(x, fontsize=22)
-        ax.set_ylabel(y, fontsize=22)
-        ax.set_ylim([0, 8])
+        ax.set_xlabel(x, fontsize=26)
+        ax.set_ylabel(y, fontsize=26)
+        ax.set_ylim([0, 8])                                                  
 
         ax.set_xticks([])
-        plt.setp(ax.get_xticklabels(), fontsize=20)  
-        plt.setp(ax.get_yticklabels(), fontsize=15) 
-
+        plt.setp(ax.get_xticklabels(), fontsize=22)  
+        plt.setp(ax.get_yticklabels(), fontsize=17.5) 
+    
     plt.savefig('Images/' + 'plot3_box_plots' +'.png')
+
+
 
 #[F6*] 
 #Reference used to generate plot: 
 # Waskom, M, 2021, seaborn.seaborn.regplot, viewed 23 April 2021, https://seaborn.pydata.org/generated/seaborn.regplot.html.
-def scatter_plot():     
+def scatter_plot():  
+    plt.clf()    
     fig, axes = plt.subplots(2, 3, figsize=(22, 18))
     plt.subplots_adjust(wspace=0.2,hspace=0.4)
-    fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 25)
-
+    
     sns.regplot(ax=axes[0, 0], data=iris_df, x='petal_length', y='petal_width')
     sns.regplot(ax=axes[0, 1], data=iris_df, x='petal_length', y='sepal_length')
     sns.regplot(ax=axes[0, 2], data=iris_df, x='petal_length', y='sepal_width') 
     sns.regplot(ax=axes[1, 0], data=iris_df, x='sepal_length', y='sepal_width')
     sns.regplot(ax=axes[1, 1], data=iris_df, x='sepal_length', y='petal_width') 
     sns.regplot(ax=axes[1, 2], data=iris_df, x='sepal_width',  y='petal_width')
+
+    fig.suptitle('Plot 4: Scatter Plot of all variables (units = cm)',fontsize = 25)
 
     for ax in plt.gcf().axes:
         x = ax.get_xlabel()
@@ -178,32 +183,16 @@ def scatter_plot():
         plt.setp(ax.get_yticklabels(), fontsize=15)  
     
     fig.tight_layout()
-    plt.subplots_adjust(wspace=0.25, hspace = 0.25, top = 0.95)     
+    # adjust subplots spacing  
+    plt.subplots_adjust(wspace=0.25, hspace = 0.25, top = 0.95)                 
     plt.savefig('Images/' + 'plot4_scatter_plots' +'.png')   
 
 
-
-#[F7*]  
-def plot_histogram_single():  
-    plt.clf()                                                                                           
-    bin_number = 15
-    plt.title('Plot 6: Histogram of all feautres together (cm)', fontsize = 15)
-
-    sns.histplot(data=iris_df, x="sepal_length", label="Sepal Length", color="red", bins = bin_number)
-    sns.histplot(data=iris_df, x="sepal_width", label="Sepal Width", color="orange", bins = bin_number)
-    sns.histplot(data=iris_df, x="petal_length", label="Petal Width", color="blue", bins = bin_number)
-    sns.histplot(data=iris_df, x="petal_width", label="Petal Width", color="green", bins = bin_number)
-    plt.legend()
-    plt.tight_layout() 
-    plt.savefig('Images/' + 'plot6_histogram_allfeature' +'.png')
-
     
+plot_histograms_multi('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
+plot_histograms_multi('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
+plot_boxplot()
+scatter_plot()
 
-if __name__ == '__main__':
-    plot_histograms_multi('plot1_histograms_petals','Plot 1','Petals','petal_length','petal_width')
-    plot_histograms_multi('plot2_histograms_sepals','Plot 2','Sepals','sepal_length','sepal_width')
-    plot_boxplot()
-    scatter_plot()
-    plot_histogram_single()
-else:
-    pass
+
+
