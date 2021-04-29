@@ -118,7 +118,7 @@ def plot_histograms_multi(filename, plot_name, chart_title, x_series_one, x_seri
 # [2] Waskom, M, 2021, seaborn.boxplot, viewed 21 April 2021, https://seaborn.pydata.org/generated/seaborn.boxplot.html.
 def plot_boxplot():
     plt.clf() 
-    fig, axes = plt.subplots(1,4, figsize=(26, 14)) 
+    fig, axes = plt.subplots(1,4, figsize=(20, 12)) 
 
     sns.boxplot(ax=axes[0], x = iris_df["species"], y = iris_df["petal_length"], data = iris_df, width=0.75)
     sns.boxplot(ax=axes[1], x=iris_df["species"], y=iris_df["petal_width"], data = iris_df, width=0.75)
@@ -138,7 +138,7 @@ def plot_boxplot():
               handles=[setosa, versi, virgi], bbox_to_anchor=(-0.05, 1.09),
               fancybox=False, shadow=False, ncol=3, loc='upper right', fontsize = 25)
     
-    fig.suptitle('Fig 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30) 
+    fig.suptitle('Plot 3 : Boxplot of Iris dependant variables (cm)', fontsize = 30) 
     
     for ax in plt.gcf().axes:  
         x = ax.get_xlabel()

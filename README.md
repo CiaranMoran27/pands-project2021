@@ -56,7 +56,7 @@ The projects main aims are to achieve the following through incremental progress
 ### 2. Background
 **2.1 Describing the Data Set**
 
-The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[<!--- UC Irvine Machine Learning Repository --->]. 
+The iris dataset is widely recognised in the field of data analytics as being a relatively small dataset of which non-trivial deductions can be made. The dataset is comprised of 150 observations (rows of data) and 5 attributes (columns of data). The attributes contain data on the iris petal / sepal dimensions across three even species samples (50 rows each)[18]. 
 In summary, each row of data pertains to a single observation across the four listed anatomical dimensional attributes for a given species of iris.
 
 &nbsp;**Dataset Attributes:**
@@ -70,34 +70,34 @@ In summary, each row of data pertains to a single observation across the four li
 
 | <img src="Images/fig1_iris_species.jpg"  width="600"/>|
 |----------|
-| Fig 1. Iris Species [<!--- Dynatrace, 2021 --->]|
+| Fig 1. Iris Species [6]|
 
 <br/>
 <br/>
 
 **2.2 History of the Iris Data Set**
 
-The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [ <!--- Cui 2020 --->]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
+The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [4]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
 <br/>     
-Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [<!-- Jain  2011 -->]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” . In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [ <!--- Cui 2020 --->]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
+Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [11]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” . In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [4]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
 <br/>
 
 | <img src="Images/fig2_ronald_fisher.jpg"  width="250"/>|
 |----------|
-| Fig 2. Ronald Fisher [<!--- fisher image--->]|
+| Fig 2. Ronald Fisher [20]|
 
 <br/>
 <br/>
 
 **2.3 Linear Discriminant Analysis and Machine learning**<br/>
 
-Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [Gonzalez, J, 2018] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions [2]:
+Today LDA is a generalization of Fishers Linear discriminant, labelled as a supervised classification method that has the potential to separate two or more classes [9] (species in the case of Iris data set). As detailed by Gonzalez (2018), the separation algorithm works by a reduction technique where the data is projected onto a lower-dimensional space, while retaining the class-discriminatory information. Although this reduction technique allows for linear classification it is important to note that the model does have two underlying assumptions [2]:
 1.	The data distribution is Gaussian, i.e is shaped like a bell curve.
 2.	Each class has the same covariance matrix.
 
-This model’s first assumption can be successfully applied to many data sets as Gaussian distributions appear regularly in the real-world data. This was explained well by Sharma (2019) where he described how larger data sets with finite variances and independent feature probabilities will have a data distribution that favours the bell curve shape [Sharma, R, 2019]. When considering the second assumption it its important to note that covariance indicates the direction of the linear relationship between variables [Janakiev, N, 2018] and is used as a measure of how two random variables vary together. If one assumes that each species in the Iris data set has the same covariance matrix, they assume that the linear correlation between randomly selected variables in a given species is equal for the same variables in all other species. 
+This model’s first assumption can be successfully applied to many data sets as Gaussian distributions appear regularly in the real-world data. This was explained well by Sharma (2019) where he described how larger data sets with finite variances and independent feature probabilities will have a data distribution that favours the bell curve shape [15]. When considering the second assumption it its important to note that covariance indicates the direction of the linear relationship between variables [12] and is used as a measure of how two random variables vary together. If one assumes that each species in the Iris data set has the same covariance matrix, they assume that the linear correlation between randomly selected variables in a given species is equal for the same variables in all other species. 
 
-It is important to understand the implications of choosing a particular model and the potential for inaccurate results if the model assumptions are not representative of the data set. Today the advances in Machine Learning provides us an opportunity to test and alter multiple data analysis library models to our needs. As described by Wakefield (2018), “machine learning uses programmed algorithms that receive and analyze input data to predict output values within an acceptable range. As new data is fed to these algorithms, they learn and optimize their operations to improve performance, developing intelligence over time”. Machine learning is broken into two main categories, supervised and unsupervised which are explained in points 1 and 2 below:(Soni 2018).
+It is important to understand the implications of choosing a particular model and the potential for inaccurate results if the model assumptions are not representative of the data set. Today the advances in Machine Learning provides us an opportunity to test and alter multiple data analysis library models to our needs. As described by Wakefield (2018), “machine learning uses programmed algorithms that receive and analyze input data to predict output values within an acceptable range. As new data is fed to these algorithms, they learn and optimize their operations to improve performance, developing intelligence over time”. Machine learning is broken into two main categories, supervised and unsupervised which are explained in points 1 and 2 below [17].
 
 1.	Unsupervised learning deals with the inherent structure of the data without using labels, an example would be a clustering algorithm that can segregate datapoints into objects based on their relative distance to other datapoints. 
 2.	Supervised learning is typically used for classification problems, when one wants to map the inputs to a desired labelled output, or regression when one wants to map the input to a continuous output . 
@@ -119,12 +119,12 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - Python 3.8.5 was used as the programming language for this data analysis project. <br/>
   - Downloaded here: **<https://www.python.org/downloads/>**.
 
-- Anacondas 3 version 3 was downloaded (version 2020.11) for its many useful libraries included in the package. <br/>
+- Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. <br/>
   - Download here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
     See figure 3 for Anacondas 3 libraries used and their version numbers: <br/>
 
 
-| <img src="Images/fig3_library_version.png"  width="250"/>|
+| <img src="Images/fig3_library_version.png"  width="350"/>|
 |----------|
 | Fig 3. |
 
@@ -189,7 +189,7 @@ Having looked at the first 5 rows of the dataset assumptions were made that the 
 
 <br/>
 
-Pandas and Numpy work effectively together to help clean dataframes, for example the *isnull()* function is used to detect missing values in an array. This function returns a boolean object where missing values get mapped to True and non-missing values get mapped to False [GfG 2020 NaN]. It is possible to sum the True values from the boolean array by applying the *sum()* function to quickly check if a dataset has any null values. This operation was performed on the Iris dataframe and yielded no null values via the following syntax: *df.groupby('species').size()*, see the output of this operation in Fig. 6 below [FX*].<br/> 
+Pandas and Numpy work effectively together to help clean dataframes, for example the *isnull()* function is used to detect missing values in an array. This function returns a boolean object where missing values get mapped to True and non-missing values get mapped to False [8]. It is possible to sum the True values from the boolean array by applying the *sum()* function to quickly check if a dataset has any null values. This operation was performed on the Iris dataframe and yielded no null values via the following syntax: *df.groupby('species').size()*, see the output of this operation in Fig. 6 below [FX*].<br/> 
 
 <br/>
 
@@ -210,21 +210,21 @@ __Histogram Analysis__<br/>
 Histograms are considered simple plots but can give very useful visualisations on the distribution of the data. To gain more insight into the Iris data a histogram of each feature (i.e dependant variable) was plotted [F1*]. Each dependent variable has two plots, one consists of the variables with no grouping (blue plots) and the second consists of the variables grouped by species (multi-coloured plots), see Plot 1 below for petal variable plots.
 
 <br/>
- <!--- Plot 1 --->
+ 
 <p align="center">
   <img src="Images/plot1_histograms_petals.png" width="675" /> 
 </p>  
 
 <br/>
 
-- __Un-grouped Petal Data__: Looking at the density plots of the blue histograms in Plot 1 it becomes apparent that although the petal length and width distribution curves do have a degree of symmetry, they do not exhibit the bell curve “normal” distribution. These distributions instead, are typically referred to as bimodal as there is two local maximums present [Ye 2020]. This distribution often occurs when there is more than one population or class present in the data. In light of this the data was grouped by species using the Seaborn library's grouping variable called “hue”, which seperated the histogram into its three individual species classes. <br/>
+- __Un-grouped Petal Data__: Looking at the density plots of the blue histograms in Plot 1 it becomes apparent that although the petal length and width distribution curves do have a degree of symmetry, they do not exhibit the bell curve “normal” distribution. These distributions instead, are typically referred to as bimodal as there is two local maximums present [21]. This distribution often occurs when there is more than one population or class present in the data. In light of this the data was grouped by species using the Seaborn library's grouping variable called “hue”, which seperated the histogram into its three individual species classes. <br/>
 
 <br/>
 
 - __Grouped Petal Data__: The grouped histograms for petal length and petal width clearly show that for these features the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. Based on these observations one could speculate that the petal attributes could play an important role in any attempt to classify the setosa class through any supervised machine learning model. See Plot 2 below for sepal feature histograms.
 
 <br/>
- <!--- Plot 2 --->
+
 <p align="center">
   <img src="Images/plot2_histograms_sepals.png" width="675" />
 </p>  
@@ -232,7 +232,7 @@ Histograms are considered simple plots but can give very useful visualisations o
 <br/>
 
 - __Sepal Data__: 
-The un-grouped sepal variable histograms (blue) do show a guassian like distribution curve. On further breakdown of the plots into their species (multicoloured) it became apparent that there is significant overlapping of data between the Versicolor and Virginica species for both the sepal length and sepal width features, however the Setosa does show some seperation.  <!--- Due to serpation observed one could assume that a machine learning model could seperate Setosa from the other two species with a relatively high degree of accuracy.--->
+The un-grouped sepal variable histograms (blue) do show a guassian like distribution curve. On further breakdown of the plots into their species (multicoloured) it became apparent that there is significant overlapping of data between the Versicolor and Virginica species for both the sepal length and sepal width features, however the Setosa does show some seperation.  
 
 <br/>
 
@@ -257,7 +257,7 @@ The pandas *describe()* function is a very useful statistical summary method tha
 
 | <img src="Images/fig9_summary_traits.png"  width="525"/>|
 |----------|
-| Fig 98.|
+| Fig 9.|
 
 <br/>
 
@@ -283,7 +283,7 @@ In addition to the histogram already performed it was considered necessary to vi
 
 
 <br/>
- <!--- Plot 3 --->
+
 <img src="Images/plot3_box_plots.png"  width="1200"/> 
 
 The following observations were drawn from Plot 3:
@@ -300,10 +300,10 @@ The following observations were drawn from Plot 3:
 
 __3.2.4 Correlation Analysis__<br/>
 
-To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [4]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
+To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below). It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [3]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
 
 <br/>
- <!--- Plot 4 --->
+
 <p align="center">
   <img src="Images/plot4_scatter_plots.png" width="1100" />
 </p> 
@@ -339,30 +339,30 @@ One aim of this project was gain a basic understanding of Machine Learning. With
 
 <br/>
 
-The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [Harrison 2018]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variables data point get closer to eachother which may to perforamce issues.
+The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [10]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variables data point get closer to eachother which may to perforamce issues.
 
 <br/>
 
-In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance (Malik 2021), it was still used for investigation purposes).
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [FX*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
 
 <br/>
 
- <img src="Images/plot5_knn_model_k_single.png"  width="1100"/>|
+ <img src="Images/plot5_knn_model_k_single.png"  width="1100"/>
 
 <br/>
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. To help  explain this a new histogram was prepared with all featured on the one plot and it was confirmed that the petal width overalapped more with other features, sepal width on the otherhand appeared to overlap less with other features( See Plot 6). This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
+To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. To help  explain this a new histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, sepal width on the otherhand appeared to overlap less with other features (See Plot 6). This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
 
 <br/>
 
- <img src="Images/plot6_histogram_allfeature.png"  width="1100"/>|
+ <img src="Images/plot6_histogram_allfeature.png"  width="600"/>|
 
 <br/>
 
 
-For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features. The data was split into two parts (20:80) for model testing and training respevtively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 6 for output.
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
 
 <br/>
 
@@ -370,7 +370,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 
  <br/>
 
- Based on the results from figure X the KNN loop yielded the highest accuracy at k = 4 and K = 6 to 25. This ability to predict species to 100% accuracy is impressive even for a small dataset such as the Fisher Iris Dataset. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
+ Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to 25. This ability to predict species to 100% accuracy is impressive even for a small dataset such as the Fisher Iris Dataset. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
 
 <br/>
 
@@ -378,26 +378,25 @@ For the last part of this project the KNN model was expored in more detail in a 
 
 [1]. Asaithambi, S, 2018, Why, How and When to apply Feature Selection, viewed 26 April 2021, **<https://towardsdatascience.com/why-how-and-when-to-apply-feature-selection-e9c69adfabf2>.** <br/>
 [2]. Brownlee, J, 2016, Linear discriminant analysis for Machine Learning, viewed 05 April 2021,<br/>**<https://machinelearningmastery.com/linear-discriminant-analysis-for-machine-learning/>.**<br/>
-[3]. Brownlee, J, 2018, A Gentle Introduction to k-fold Cross-Validation, viewed 27 April 2021,<br/> **<https://machinelearningmastery.com/k-fold-cross-validation/.>**.<br/>
-[4]. Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
-[5]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
-[6]. Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
-[7]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
-[8]. Fernandes, M 2016, 'From Three Fishers: Statistician, Geneticist and Person to Only One Fisher: The Scientist', Journal of Biometrics & Biostatistics, vol. 7, no. 1, pp. 1, DOI: 10.4172/2155-6180.1000282.<br/>
-[9]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
-[10]. Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021,<br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>.**<br/>
-[11]. Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**
-[12]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
-[13]. Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>.**<br/>
-[14]. Malik, U, 2021, Applying Wrapper Methods in Python for Feature Selection, Stack Abuse, **<https://stackabuse.com/applying-wrapper-methods-in-python-for-feature-selection/>.**<br/>
-[15]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
-[16]. Saha, S, 2018, Baffled by Covariance and Correlation??? Get the Math and the Application in Analytics for both the terms, towards data science, viewed 23 April 2021,**<https://towardsdatascience.com/let-us-understand-the-correlation-matrix-and-covariance-matrix-d42e6b643c22>.**<br/>
-[17]. Sharma, R, 2019, Gaussian distribution, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>.**<br/>
-[18]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
-[19]. Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021,<br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>.**<br/>
-[20]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<https://archive.ics.uci.edu/ml/datasets/iris/>.**<br/>
-[21]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>**<br/>
-[22]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>.**<br/>
-[23]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
+[3]. Brownlee, J, 2018, How to Calculate Correlation Between Variables in Python, viewed 23 April 2021,**<https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/>**.<br/>
+[4]. Cui, Y 2020, The Iris dataset – a little bit of history and biology, towards data science, viewed 26 Match 2021,**<https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5>.**<br/>
+[5]. Dan, A, 2022, Kurtosis() & Skew() Function In Pandas, medium.com, viewed 19 April 2021, **<https://medium.com/@atanudan/kurtosis-skew-function-in-pandas-aa63d72e20de>**.<br/>
+[6]. Dynatrace, 2021, [image], accessed 26 March 2021, **<https://www.pngkey.com/maxpic/u2q8t4w7q8w7u2u2/>.**<br/>
+[7]. Fernandes, M 2016, 'From Three Fishers: Statistician, Geneticist and Person to Only One Fisher: The Scientist', Journal of Biometrics & Biostatistics, vol. 7, no. 1, pp. 1, DOI: 10.4172/2155-6180.1000282.<br/>
+[8]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
+[9]. Gonzalez, J, 2018, Using linear discriminant analysis (LDA) for data explore, viewed 31 March 2021,<br/>**<https://www.apsl.net/blog/2017/07/18/using-linear-discriminant-analysis-lda-data-explore-step-step/>.**<br/>
+[10].Harrison, O, 2018, Machine Learning Basics with the K-Nearest Neighbors Algorithm, towards data science, viewed 26 april 2021, **<https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>.**
+[11]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
+[12]. Janakiev, N, 2018, Understanding the Covariance Matrix, viewed 31 March 2021, <br/>**<https://datascienceplus.com/understanding-the-covariance-matrix/>.**<br/>
+[13]. Malik, U, 2021, Applying Wrapper Methods in Python for Feature Selection, Stack Abuse, **<https://stackabuse.com/applying-wrapper-methods-in-python-for-feature-selection/>.**<br/>
+[14]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
+let-us-understand-the-correlation-matrix-and-covariance-matrix-d42e6b643c22>.**<br/>
+[15]. Sharma, R, 2019, Gaussian distribution, viewed 31 March 2021,<br/>**<https://medium.com/ai-techsystems/gaussian-distribution-why-is-it-important-in-data-science-and-machine-learning-9adbe0e5f8ac>.**<br/>
+[16]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
+[17]. Soni, D, 2018, Supervised Vs. unsupervised learning, towards data science, viewed 05 April 2021,<br/>**<https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d>.**<br/>
+[18]. UC Irvine Machine Learning Repository, 2021, Iris dataset, viewed 26 March 2021,<br/>**<https://archive.ics.uci.edu/ml/datasets/iris/>.**<br/>
+[19]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021, <br/>**<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>**<br/>
+[20]. Wikipedia, 2021, [image], accessed: 28 March 2021, **<https://en.wikipedia.org/wiki/Ronald_Fisher#/media/File:Youngronaldfisher2.JPG>.**<br/>
+[21]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
 
 
