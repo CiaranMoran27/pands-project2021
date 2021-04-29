@@ -19,6 +19,7 @@
         # Uses train test split method to train KNeighborsClassifier method from k=1 to k=25 and outputs plot 
 
 
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,8 +31,12 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn import metrics
 from mlxtend.feature_selection import ExhaustiveFeatureSelector as EFS
+import mlxtend
 
 os.chdir(os.path.dirname(__file__))                                                        
+
+print(mlxtend.__version__)
+
 
 
 #[F1*] 

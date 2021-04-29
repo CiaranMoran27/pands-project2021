@@ -95,7 +95,7 @@ Today LDA is a generalization of Fishers Linear discriminant, labelled as a supe
 1.	The data distribution is Gaussian, i.e is shaped like a bell curve.
 2.	Each class has the same covariance matrix.
 
-This model’s first assumption can be successfully applied to many data sets as Gaussian distributions appear regularly in the real-world data. This was explained well by Sharma (2019) where he described how larger data sets with finite variances and independent feature probabilities will have a data distribution that favours the bell curve shape [15]. When considering the second assumption it its important to note that covariance indicates the direction of the linear relationship between variables [12] and is used as a measure of how two random variables vary together. If one assumes that each species in the Iris data set has the same covariance matrix, they assume that the linear correlation between randomly selected variables in a given species is equal for the same variables in all other species. 
+This model’s first assumption can be successfully applied to many data sets as Gaussian distributions appear regularly in the real-world data. This was explained well by Sharma (2019) where he described how larger data sets with finite variances and independent feature probabilities will have a data distribution that favours the bell curve shape [15]. When considering the second assumption it its important to note that covariance indicates the direction of the linear relationship between variables [12] and is used as a measure of how two random variables vary together. If one assumes that each species in the Iris data set has the same covariance matrix, they assume that the linear correlation between randomly selected variables in a given species is equal  in all other species. 
 
 It is important to understand the implications of choosing a particular model and the potential for inaccurate results if the model assumptions are not representative of the data set. Today the advances in Machine Learning provides us an opportunity to test and alter multiple data analysis library models to our needs. As described by Wakefield (2018), “machine learning uses programmed algorithms that receive and analyze input data to predict output values within an acceptable range. As new data is fed to these algorithms, they learn and optimize their operations to improve performance, developing intelligence over time”. Machine learning is broken into two main categories, supervised and unsupervised which are explained in points 1 and 2 below [17].
 
@@ -120,8 +120,11 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Downloaded here: **<https://www.python.org/downloads/>**.
 
 - Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. <br/>
-  - Download here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
-    See figure 3 for Anacondas 3 libraries used and their version numbers: <br/>
+  - Downloaded here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
+- See figure 3 below for libraries used and their version numbers:
+  - All libraries except mlxtend are included in the andaconas 3 package. 
+  - To install  mlxtend  type 'pip install mlxtend' into the command line
+  - The 'pip install libname' method will work for individual installation of all libraries listed in Fig 3.   <br/>
 
 
 | <img src="Images/fig3_library_version.png"  width="275"/>|
@@ -139,15 +142,15 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning>**.
 
 - analysis.py <br/>
-  - This Python module contains the source code used to generate summary_file.txt and output plots saved to Images folder as .png files.
-  - It Conisits of numerous functions that will be referenced throughout the README file. <br/>
+  - Contains source code used to generate summary_file.txt and output plots that are written to the Images folder as .png files.
+  - Consists of numberous functions that will be referenced throughout the README file. <br/>
   - Code References will be located in the module at the top of each function and denoted via [*1], [*2],[*n..] etc 
   - Run analysis.py to execute the functions and write summary and relevent plots.
   <br/>
 
 - machine_learning.py<br/>
-  - This Python module contains the source code used to generate two machine learning output plots saved to Images folder as .png files.
-  - It Conisits of two functions that will be referenced throughout the README file and denoted as in analysis.py.
+  - Contains source code used to generate three machine learning plots which are written to Images folder as .png files.
+  - Consists of three functions that will be referenced throughout the README file and denoted as in analysis.py.
   - Run machine_learning.py to execute the functions and write the plots.
 
 <br/>
@@ -164,7 +167,7 @@ This was achieved using the *read_csv()* method of the pandas library [F1*]. Thi
 <br/>
 
 __3.2.2 Analysing the Dataframe:__ <br/>
-For this investigation a *Summary* Class was created in *analysis.py* to process summary objects that were instantiated throughout this investigation [F2*]. Within this class there is an instance method that writes the summary objects to a summary text file called summary_file.txt [F3*]. Note: In the proceeding investigation Fig.4 to Fig.10 were generated and written to the text file using using method.
+For this investigation a *Summary* Class was created in *analysis.py* to process a summary object that was instantiated during the investigation [F2*]. Within this class there is an instance method that writes the summary object to a summary text file called summary_file.txt [F3*]. Note: In the proceeding investigation Fig.4 to Fig.10 were generated and written to the text file using the *Summary* Class.
 
 <br/>
 
@@ -224,7 +227,7 @@ Histograms are considered simple plots but can give very useful visualisations o
 
 <br/>
 
-- __Grouped Petal Data__: The grouped histograms for petal length and petal width clearly show that for these features the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. See Plot 2 below for a sepal histograms.
+- __Grouped Petal Data__: The grouped histograms for petal length and petal width clearly show that for these features the Setosa species is well separated from Versicolor and Virginica. It was also noted that petal width and petal length showed a degree of separation between the versicolor and virginica species, with more overlap of probability densities apparent when looking at petal length. See Plot 2 below for sepal histograms.
 
 <br/>
 
@@ -244,7 +247,7 @@ It was possible also possible to gain insight into data distributions via two pa
 - **df.skew()**: Measures how symmetric a data distrubition is. The Function computes the "skewness" of the data present in a given axis of the DataFrame object. A skew value between -0.5 and 0.5 is considered symmetrical.<br/>
 - **series.kurtosis()**: Measures the heaviness of the distribution tails. The function computes the tail volumne difference relative to a guassian distribution curve. A kurtosis value of 0 is considered normal distribution, negative inidicates a flat thin-tailed distribution, positive indicates pointy fat-tailed distribution curves and a kurtosis value that exceeds absolute 3 indicates Excess Kurtosis.<br/>
 
-These two distrubtion functions were used to further analyse the ungrouped iris features (see Fig 8 below). The results showed that for iris features a degree of symmetry exists in the data distributions as all skew values lie between -0.5 and 0.5. The sepal length and sepal width attribues have a slightly right learning skew whearas the petal length and petal width attributes data curve is leaning slightly to the left. All the kurtosis values for this datset do not exceed absolute 3, which indicates that for future sample selection there would be a low probability of obtaining an extreme outlier relative to the normal distribution curve. <br/>
+These two distrubtion functions were used to further analyse the ungrouped iris features (see Fig 8 below). The results showed that for all iris features a degree of symmetry exists in the data distributions as all skew values lie between -0.5 and 0.5. The sepal length and sepal width attribues have a slightly right learning skew whearas the petal length and petal width attributes data curve is leaning slightly to the left. All the kurtosis values for this datset do not exceed absolute 3, which indicates that for future sample selection there would be a low probability of obtaining an extreme outlier relative to the normal distribution curve. <br/>
 
 <br/>
 
@@ -291,14 +294,13 @@ In addition to the histogram already performed it was considered necessary to vi
 
 The following observations were drawn from Plot 3:
 - Data Distribution:
-  - Petal length and sepal length data range appears the largest, which can be confirmed when comparing to the standard deviaton from Fig. 9.
-  - As a whole there is dimenstional overlap of features, with the least overap observed for Setosa across all features.
-  - Petal length and sepal length data shows the most overlap, while petal width and sepal width show less overlap than other features. 
+  - Petal length  data range appears the largest, which can be confirmed when comparing to the standard deviaton from Fig. 9.
+  - As a whole there is dimenstional overlap of features, with the least overap observed for Setosa across all features Petal length data appears to overlatop with other features the most while sepal width shows less overlap.
   - Although the skew model indicated that petal width data (un-grouped) had a skew value nearest to zero, it can be observed in the boxplot that the distribution appears negatively skewed for the Versicolour species on its own. This observation was made as the median is closer to the first quartile while the lower whisker is shorter than that of the top whisker. This can also be observed in the multi-coloured histogram in Plot 1. 
 - Outliers:
-  - The setosa species has four outliers, two for petal length and two for petal width features. 
+  - The setosa species has five outliers, two three petal length and two for petal width features. 
   - The Virginica species also has three outliers, one for sepal length and two for sepal width.
-  - Having analysed the outliers from the boxplot it became apparent that one can deduce outlier information from a histogram also. If a large number of bins are set in the histogram the outlier will be more  obvious, however in this case where a medium value of bins were selected one can see potential outliers where there is a large difference between the bin height and the probability density curve.(see Setosa species in plot 1).
+  - Having analysed the outliers from the boxplot it became apparent that one can deduce outlier information from a histogram also. If a large number of bins are set in the histogram the outlier will be more  obvious, however in this case where a medium value of bins were selected one can see potential outliers where there is a large difference between the bin height and the probability density curve (see Setosa species in plot 1).
 
 <br/>
 
@@ -325,7 +327,7 @@ The pandas library has a useful method called *.corr* which can be used to compu
 
 <br/>
 
-Figure 10 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length Vs. petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 910 that multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. Although this does not always impy causation this will be explored further using a machine learning model.
+Figure 10 pairwise correlation data re-affirmed the correlation observations made from the scatter plots with petal length Vs. petal width showing the highest positive linear correlation with a value of 0.96. It is also apparent from Fig 10 that multicollinearity is at play in this dataset as there is degree of intercorrelation between some of the iris feaures. Although this does not always impy causation this will be explored further using a machine learning model.
 
 <br/>
 
@@ -338,7 +340,7 @@ Feature selection is an important process that is used in machine learning to ch
 
 __3.3.2 Choosing a Model__
 
-One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided to import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
 
 <br/>
 
@@ -356,7 +358,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-To add to this, the model performed best when the variable with the highest degree of correlation was dropped (petal width) and worst when the most highly correlated variable (petal width) was used to solely train the model. Taking a slight backstep fromm correlation a histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, while sepal width on the otherhand appeared to overlap less with other features (See Plot 6) [F9*]. This observation would help justify why for example sepal width would perform better than sepal length when the features were independantly used to train the KNN model.
+In addition to this the model performed best when the sepal width feature was used to solely train worst when petal width was used to solely train the model. Taking a slight backstep fromm correlation a histogram was prepared with all features on the one plot and it was confirmed that the petal width overlapped more with other features, while sepal width on the otherhand appeared to overlap less with other features (See Plot 6) [F9*]. This observation would help justify why sepal width would perform better than petal width when these features were used to independantly train the KNN model.
 
 <br/>
 
@@ -364,7 +366,7 @@ To add to this, the model performed best when the variable with the highest degr
 
 <br/>
 
-For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features [F10*]. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features used to train the model [F10*]. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
 
 <br/>
 
@@ -458,6 +460,6 @@ For the last part of this project the KNN model was expored in more detail in a 
 
 <br/>
 
-[21]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021,<br/> **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
+[21]. Ye, A, 2020, viewed 22 April 2021, All the distributions you need to know, towards data science, viewed 22 April 2021, **<https://towardsdatascience.com/all-the-distributions-you-need-to-know-ad570514987b>.**<br/>
 
 
