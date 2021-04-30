@@ -127,7 +127,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - See figure 3 below for libraries used and their version numbers:
   - All libraries except mlxtend are included in the Anacondas 3 package. 
   - On Windows the following command 'conda install -c conda-forge mlxtend' will install the m*lxtend* package.
-  - To individually install any other package listed in Fig 3. type 'pip install 'package_name' into command line.
+  - To individually install any other package listed in Fig 3. type 'pip install *package_name*' into command line.
      <br/>
 
 <br/>
@@ -144,7 +144,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 
 - Repository:
   - Repository is located here: **<https://github.com/CiaranMoran27/pands-project2021>**.
-  - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning>**.
+  - Note: For best results and ease of use clone repository as described here: **<https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository>**.
 
 
 - analysis.py <br/>
@@ -159,6 +159,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Consists of three functions that will be referenced throughout the README file and denoted as in analysis.py.
   - Run machine_learning.py to execute the functions and write the plots.
 
+<br/>
 <br/>
 <br/>
 
@@ -300,12 +301,13 @@ In addition to the histogram already performed it was considered necessary to vi
 
 The following observations were drawn from Plot 3:
 - Data Distribution:
-  - Petal length  data range appears the largest, which can be confirmed when comparing to the standard deviaton from Fig. 9.
-  - As a whole there is dimenstional overlap of features, with the least overap observed for Setosa across all features Petal length data appears to overlatop with other features the most while sepal width shows less overlap.
+  - Petal length data range is the largest, re-affirmed by standard deviaton from Fig. 9. 
+  - Petal width and petal length data appears to overlap with other features the most while sepal width shows less overlap.
+  - The Setosa species shows the least overlap across all species and no overlap for the petal width feature.
   - Although the skew model indicated that petal width data (un-grouped) had a skew value nearest to zero, it can be observed in the boxplot that the distribution appears negatively skewed for the Versicolour species on its own. This observation was made as the median is closer to the first quartile while the lower whisker is shorter than that of the top whisker. This can also be observed in the multi-coloured histogram in Plot 1. 
 - Outliers:
-  - The setosa species has five outliers, two three petal length and two for petal width features. 
-  - The Virginica species also has three outliers, one for sepal length and two for sepal width.
+  - The setosa species has five outliers, three for petal length and two for petal width features. 
+  - The Virginica species has three outliers, one for sepal length and two for sepal width.
   - Having analysed the outliers from the boxplot it became apparent that one can deduce outlier information from a histogram also. If a large number of bins are set in the histogram the outlier will be more  obvious, however in this case where a medium value of bins were selected one can see potential outliers where there is a large difference between the bin height and the probability density curve (see Setosa species in plot 1).
 
 <br/>
@@ -338,7 +340,7 @@ Figure 10 pairwise correlation data re-affirmed the correlation observations mad
 
 __3.3 Machine Learning__ <br>
 
-__3.3.1 Feature Selection__
+__3.3.1 Feature Selection__ <br/>
 Feature selection is an important process that is used in machine learning to choose the features of the dataset that best describe the target and if needed drop variables that dont describe the target output. Asaithambi 2018 describes how models with higher levels of dimensionality can struggle as training time increases exponentially with number of features and the model has a higher risk of overfitting. It was interesting to consider how dimensionality reduction may effect smaller datasets and how a chosen model would perform. This will be explored further in the next section.
 
 <br/>
@@ -390,19 +392,19 @@ The following findings were established during this investigation:
 - Data Distribtion
   - On the species level all features have a nomral distriubtion.
   - Petal width data as a whole yielded most overlap, while sepal width yielded the least (i.e better seperation).
-  - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset, however this varaible is correlated to others.
+  - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset, however this petal width varaible is correlated with other features.
 
 - Correlated variables (Perasons method):
   1. Petal length Vs. petal width: high positive correlation (0.96).
   2. Petal length Vs. sepal length: high positive correlation (0.87).
   3. Petal width  Vs. sepal length: high positive correlation (0.82).  
-  - There are three high levels of pairwise positive correlation that exists in the dataset. Multicollinearity exists in the dataset as sepal length is highly correlated to petal length and petal width.
+  There are three high levels of pairwise positive correlation that exists in the dataset. Multicollinearity exists in the dataset as sepal length is highly correlated to petal length and petal width.
    <br/>
 
   
 - Machine Learning 
-  - Altought computationally heavy, the Exhaustive Feature Selector (EHS) is a useful wrapper method for checking model performance across all possible combinations of features in the dataset.
-  - Using EHS the The k-nearest neighbors (KNN) model showed that correlation had a negative effect on model accuracy for the iris dataset.
+  - Although computationally heavy, the Exhaustive Feature Selector (EHS) is a useful wrapper method for checking model performance across all possible combinations of features in the dataset.
+  - Using EHS method the k-nearest neighbors (KNN) model showed that pairwise correlation and multicollinearity had a negative effect on model accuracy when acting on the iris dataset.
   - On a full dataset (no features dropped) the KNN model has highest model accuracy at k = 4 and K = 6 to K = 25 when using the train-test-split method.
    
    <br/>
@@ -465,7 +467,7 @@ The points below describe what insights were drawn from using the Python librari
 
 <br/>
 
-[8]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021,**<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
+[8]. GeeksforGeeks, 2020, Count NaN or missing values in Pandas DataFrame, viewed 15 April 2021, **<https://www.geeksforgeeks.org/count-nan-or-missing-values-in-pandas-dataframe>.**<br/>
 
 <br/>
 
@@ -477,7 +479,7 @@ The points below describe what insights were drawn from using the Python librari
 
 <br/>
 
-[11]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, **<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
+[11]. Jain, P, 2011, Sir Ronald Aylmer Fisher, Encyclopaedia Britannica, <br/>**<https://www.britannica.com/biography/Ronald-Aylmer-Fisher>.**<br/>
 
 <br/>
 
@@ -489,7 +491,7 @@ The points below describe what insights were drawn from using the Python librari
 
 <br/>
 
-[14]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,**<https://pbpython.com/pandas_dtypes.html>**.<br/>
+[14]. Moffitt, C, 2018, Overview of Pandas data types, Practical Business python, viewed 15 April 2021,<br/>**<https://pbpython.com/pandas_dtypes.html>**.<br/>
 
 <br/>
 
@@ -497,7 +499,7 @@ The points below describe what insights were drawn from using the Python librari
 
 <br/>
 
-[16]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed 16 April 2021,**<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
+[16]. Solomon, B, 2021, Pandas GroupBy: Your Guide to Grouping Data in Python, RealPython, viewed<br/>16 April 2021, **<https://realpython.com/pandas-groupby/#pandas-groupby-putting-it-all-together>**.<br/>
 
 <br/>
 
@@ -509,7 +511,7 @@ The points below describe what insights were drawn from using the Python librari
 
 <br/>
 
-[19]. Wakefield, K. (2018). A guide to machine learning algorithms and their applications, viewed 05 April 2021,  **<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>.**<br/>
+[19]. Wakefield, K, 2018, A guide to machine learning algorithms and their applications, viewed 05 April 2021,  **<https://www.sas.com/en_ie/insights/articles/analytics/machine-learning-algorithms.html>.**<br/>
 
 <br/>
 
