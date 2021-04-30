@@ -81,7 +81,7 @@ In summary, each row of data pertains to a single observation across the four li
 
 The iris data set observations were collected at the Gaspé Peninsula by a botanist named Edgar Anderson [4]. Born in 1897 in New York, he made many contributions to botanical genetics. He worked alongside a successful scientist named Ronald Fisher, who would explore the dataset using statistical techniques that are widely used today.<br/>
 <br/>     
-Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [11]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” . In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [4]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher iris data set.
+Ronald Fisher was an accomplished statistician and geneticist, born in 1890 in London and a pioneer in applying statistical procedures to the design of experiments [11]. According to Hald (1998, as cited in Fernandes, 2016) ,“Fisher was a genius who almost single-handedly, created the foundations for modern statistical science” . In 1936, with Edgar’s consent, Fisher published a famous paper titled “the Use of Multiple Measurements in Taxonomic Problems” that explored a linear function to distinguish between iris species based on their morphology [4]. The paper shows how fisher explored classification of different species through Linear Discrimination Analysis on the multivariate data set. Based on his contributions, the iris dataset is commonly referred to as the Fisher Iris data set.
 <br/>
 
 | <img src="Images/fig2_ronald_fisher.jpg"  width="250"/>|
@@ -104,7 +104,7 @@ It is important to understand the implications of choosing a particular model an
 1.	Unsupervised learning deals with the inherent structure of the data without using labels, an example would be a clustering algorithm that can segregate datapoints into objects based on their relative distance to other datapoints. 
 2.	Supervised learning is typically used for classification problems, when one wants to map the inputs to a desired labelled output, or regression when one wants to map the input to a continuous output . 
 
-This project will further explore and test supervised machine learning classification models on the Iris Dataset.
+This project will further explore and test a supervised machine learning classification model on the Iris dataset.
 
 <br/>
 <br/>
@@ -122,12 +122,12 @@ This Section details the downloads, modules, tools, libraries and dependencies f
   - Downloaded here: **<https://www.python.org/downloads/>**.
 
 - Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. 
-  - Downloaded here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
-  - On Windows the following command will upgrade Anacondas to current version if needed : *python -m pip install --upgrade pip*. 
+  - Downloaded here **<https://www.anaconda.com/products/individual#Downloads>**.<br/>
+  - On Windows the following command will upgrade Anacondas to current version if needed :<br/>*python -m pip install --upgrade pip*. 
 - See figure 3 below for libraries used and their version numbers:
   - All libraries except mlxtend are included in the Anacondas 3 package. 
-  - On Windows the following command 'conda install -c conda-forge mlxtend' will install the m*lxtend* package.
-  - To individually install any other package listed in Fig 3. type 'pip install *package_name*' into command line.
+  - On Windows the following command '*conda install -c conda-forge mlxtend*' will install the *mlxtend* package.
+  - To individually install any other package listed in Fig 3. type '*pip install package_name*' into command line.
      <br/>
 
 <br/>
@@ -140,7 +140,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 
 - Fisher Iris Dataset:
   - This was downloaded here : **<http://archive.ics.uci.edu/ml/datasets/Iris>**. <br/>
-  - This was saved as ‘’Iris_Data_Set.txt” in the same directory as Analysis.py module. <br/>
+  - This was saved as ‘’Iris_Data_Set.txt” in the same directory as analysis.py module. <br/>
 
 - Repository:
   - Repository is located here: **<https://github.com/CiaranMoran27/pands-project2021>**.
@@ -150,7 +150,7 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 - analysis.py <br/>
   - Contains source code used to generate summary_file.txt and output plots that are written to the Images folder as .png files.
   - Consists of numberous functions that will be referenced throughout the README file. <br/>
-  - Code References will be located in the module at the top of each function and denoted via [*1], [*2],[*n..] etc 
+  - Code References will be located in the module at the top of each function and denoted via [*1], [*2],[*n..]. These references will also be used in README file to show what function the data relates to. 
   - Run analysis.py to execute the functions and write summary and relevent plots.
   <br/>
 
@@ -178,7 +178,7 @@ For this investigation a *Summary* Class was created in *analysis.py* to process
 
 <br/>
 
-The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n)* method of the pandas library. This method is useful as it allows the user to look at a subset of the data to deduce what columns are relevant and to perform quick checks to see if data transformations are performing as expected. It was noticed that the column headers were indexed from 0-3 by pandas as the Dataset that was downloaded did not include column names. Based on these findings the correct column names were passed as a list to the *df.columns* method, see figure 4.
+The first 5 rows of the Dataframe were observed by passing 5 into the *df.head(n)* method of the pandas library. This method is useful as it allows the user to look at a subset of the data to deduce what columns are relevant and to perform quick checks to see if data transformations are performing as expected. It was noticed that the column headers were indexed from 0-3 by pandas as the dataset that was downloaded did not include column names. Based on these findings the correct column names were passed as a list to the *df.columns* method, see figure 4.
 
 <br/>
 
@@ -213,7 +213,7 @@ Fig. 5  |  Fig. 6  |  Fig. 7
   
 <br/>
 
-If one was dealing with larger datasets it would be unlikely that a null count of zero will be encountered. One can clean a dataset with null values in a number of ways. For example its possible to replace null values with a selection of your choice by passing this selection into the *fillna()* pandas function and applying it on your dataframe. It is also possible to drop rows that contain null values using the *drop na()* function. In addition to this Solomon 2020 detailed NumPy's ability to generate Boolean masks on arrays that can be utilised alongside pandas functions to perform fast detailed cleaning operations. An example of this would be using the Numpy *np.where()* function alongside pandas *replace()* function to replace string in a series at defined locations. The takeaway point here is that python libraries such as Pandas and NumPy have a lot of functionality that help deal with un-cleansed data. 
+If one was dealing with larger datasets it would be unlikely that a null count of zero will be encountered. One can clean a dataset with null values in a number of ways. For example its possible to replace null values with a selection of your choice by passing this selection into the *fillna()* pandas function and applying it on your dataframe. It is also possible to drop rows that contain null values using the *drop na()* function. In addition to this Solomon 2020 detailed NumPy's ability to generate boolean masks on arrays that can be utilised alongside pandas functions to perform fast detailed cleaning operations. An example of this would be using the numPy *np.where()* function alongside pandas *replace()* function to replace string in a series at defined locations. The takeaway point here is that python libraries such as Pandas and NumPy have a lot of functionality that help deal with un-cleansed data. 
 
 <br/>
 
@@ -264,7 +264,7 @@ These two distrubtion functions were used to further analyse the ungrouped iris 
 <br/>
 
 **describe() Function**<br/>
-The pandas *describe()* function is a very useful statistical summary method that can be applied to a given dataset. In its standard form this function returns the min, max, mean, median, 25th percentile, 75th percentile and standard deviation of the data. The Iris dataset was passed to this function, see Fig. 9 below for statistical summary of the 4 attributes in the Iris Dataset. 
+The pandas *describe()* function is a very useful statistical summary method that can be applied to a given dataset. In its standard form this function returns the min, max, mean, median, 25th percentile, 75th percentile and standard deviation of the data. The Iris dataset was passed to this function, see Fig. 9 below for statistical summary of the 4 attributes in the Iris dataset. 
 
 <br/>
 
@@ -314,7 +314,7 @@ The following observations were drawn from Plot 3:
 
 __3.2.4 Correlation Analysis__<br/>
 
-To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below) [F6*]. It is important to discover and quantify the degree to which variabeles are depenadnt on eachother [3]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
+To better understand any potential relationships between the variables in the dataset a scatter plot was generated comparing all iris fearures agaisnt eachother (see plot 4 below) [F6*]. It is important to discover and quantify the degree to which variabeles are dependant on eachother [3]. Brownlee 2018 then goes on to explain how a better understanding of variable correlation can help you perpare your data for use in machine learning algorithms.
 
 <br/>
 
@@ -324,7 +324,7 @@ To better understand any potential relationships between the variables in the da
 
 <br/>
 
-On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases at a similar rate. Sepal length vs petal length  and sepal length vs petal width regression lines also show a positive degree of linear correlation. The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 10.
+On analysis of the scatter plots it was established that petal length and petal width features appeared to have a high degree of positive linear correlation, that is to say that as petal length increases petal width also increases. Sepal length vs petal length and sepal length vs petal width regression lines also show a positive degree of linear correlation. The pandas library has a useful method called *.corr* which can be used to compute pairwise correlation of variables. This function was used on iris dataset with the default Pearson method of linear association, see Fig. 10.
 
 <br/>
 
@@ -347,7 +347,7 @@ Feature selection is an important process that is used in machine learning to ch
 
 __3.3.2 Choosing a Model__
 
-One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided to import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Although Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided to import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris dataset in an attempt to classify the target species. Although Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
 
 <br/>
 
@@ -355,7 +355,7 @@ The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning
 
 <br/>
 
-In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as through research it was established that this value has been found to result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [F8*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as through research it was established that this value has been found to result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [F8*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes, See Plot 5).
 
 <br/>
 
@@ -365,7 +365,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-It was also noted that the sepal width feature was predominantly present in the higher accuracy model runs where more than 1 feaure was used to train the model. This observation was attributed to the sepal width feature being the only feature than didnt show high correlation with other features. In addition to this the model performed best when the sepal width feature was used to solely train it (circa. 96.5%), while petal width resulted in poorer model performance (circa 55%). This makes sense as being the least correlated variable one would expect sepal width to show the least overlap when plotted with the other iris featues. Plot 6 below reaffirms these findings[F9*].
+It was also noted that the sepal width feature was predominantly present in the higher accuracy model runs where more than 1 feaure was used to train the model. This observation was attributed to the sepal width feature being the only feature than didnt show high correlation with other features. In addition to this the model performed best when the sepal width feature was used to solely train it (circa. 96.5%), while petal width resulted in poorer model performance (circa 55%). This makes sense as being the least correlated variable one would expect sepal width to show the least overlap when plotted with the other iris featues. Plot 6 below re-affirms these findings [F9*].
 
 <br/>
 
@@ -381,7 +381,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 
  <br/>
 
- Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation.
+ Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. The accuracy at K = 3 (circa. 96.5%) can be confirmed against Plot 6 when all features were used to train that model. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation.
 
 <br/>
 
@@ -390,7 +390,7 @@ For the last part of this project the KNN model was expored in more detail in a 
 
 The following findings were established during this investigation:
 - Data Distribtion
-  - On the species level all features have a nomral distriubtion.
+  - On the species level all features have a normal distriubtion.
   - Petal width data as a whole yielded most overlap, while sepal width yielded the least (i.e better seperation).
   - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset, however this petal width varaible is correlated with other features.
 
@@ -432,7 +432,7 @@ The points below describe what insights were drawn from using the Python librari
   - Both libraries can work together and create useful plots. Seaborn has a higher level interface with useful functions that can for example seperate the iris histogram into species (hue=species).
 
 - sklearn
-  - Powerful Machine Learning library that can run built in statistical models and provice tools for dataset dimensionality reduction.
+  - Powerful Machine Learning library that can run built in statistical models and provide tools for dataset dimensionality reduction.
 
 <br/>
 
