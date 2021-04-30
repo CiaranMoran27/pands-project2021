@@ -123,10 +123,10 @@ This Section details the downloads, modules, tools, libraries and dependencies f
 
 - Anacondas 3 (version 2020.11) was downloaded for its many useful libraries included in the package. 
   - Downloaded here **<https://docs.anaconda.com/anaconda/install/>**.<br/>
-  - On Windows the follow command will upgrade Anacondas to current version if needed : *python -m pip install --upgrade pip*. 
+  - On Windows the following command will upgrade Anacondas to current version if needed : *python -m pip install --upgrade pip*. 
 - See figure 3 below for libraries used and their version numbers:
   - All libraries except mlxtend are included in the Anacondas 3 package. 
-  - On Windows the following command 'conda install -c conda-forge mlxtend' will install the package.
+  - On Windows the following command 'conda install -c conda-forge mlxtend' will install the m*lxtend* package.
   - To individually install any other package listed in Fig 3. type 'pip install 'package_name' into command line.
      <br/>
 
@@ -345,15 +345,15 @@ Feature selection is an important process that is used in machine learning to ch
 
 __3.3.2 Choosing a Model__
 
-One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided to import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Altough Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
+One aim of this project was gain a basic understanding of Machine Learning. With this in mind it was decided to import the *sklearn* library to explore one of the simpler machine learning models and run it on the Iris Dataset in an attempt to classify the target species. Although Ronald Fisher had good success classifying species with LDA, a model that assumes Guassian distribution and the same covariance matrix accross classes, it was decided to look for a simpler model that that doesnt directly make these assumptions.
 
 <br/>
 
-The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [10]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imageine how multi-collinearity could effect model performance as independant variable data points get closer to eachother which may to perforamce issues for classification.
+The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems [10]. As described by Harrison 2018 the model works by finding the distances between a query and all the examples in the data, selecting the specified number of examples (K) closest to the query. When used for classification purposes the algorithm then votes for the most frequent label when applied. Although this model does not analyse features seperately one can imagine how pairwise correlation or multi-collinearity could effect model performance as independant variable data points would get closer to eachother which may lead to perforamce issues for classification.
 
 <br/>
 
-In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as this value has been found through experimentation to generally result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [F8*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
+In an attempt to better understand how feature selection can impact the KNN model performance the Exhaustive Feature Selector (EFS) wrapper method was used to evaluate the model performance across all possible combinations of features in the dataset. An initial value of K = 3 was selected, with the aim to test more k values thereafter. A cross validation value of 10 was selected as through research it was established that this value has been found to result in low bias (i.e the datset will be divded into 10 parts for testing / training purposes) [F8*]. Note: Altough EFS slows model performance [13], it was still used for investigation purposes).
 
 <br/>
 
@@ -363,7 +363,7 @@ In an attempt to better understand how feature selection can impact the KNN mode
 
 The results from plot 5 are very interesting. The petal features overall performed worse at prediciting the Iris species, while the sepal dimensions performed better. There appears to be a link with variables having high correlation and a reduced ability to make accurate model predictions. This would make sense as the more correlated variables are, the harder it would be to alter their dimension without altering another variable in a similar way. 
 
-It was also noted that the sepal width feature was predominantly present in the higher accuracy model runs where more than 1 feaure was used to train the model. This observation was attributed to the sepal width feature being the only feature than didnt show high correlation with other features. In addition to this the model performed best when the sepal width feature was used to solely train it (circa. 96.5%), while petal width resulted in poorer model performance (circa 60%). This makes sense as being the least correlated variable one would expect sepal width to show the least overlap when plotted with the other iris featues. Plot 6 below reaffirms these findings[F9*].
+It was also noted that the sepal width feature was predominantly present in the higher accuracy model runs where more than 1 feaure was used to train the model. This observation was attributed to the sepal width feature being the only feature than didnt show high correlation with other features. In addition to this the model performed best when the sepal width feature was used to solely train it (circa. 96.5%), while petal width resulted in poorer model performance (circa 55%). This makes sense as being the least correlated variable one would expect sepal width to show the least overlap when plotted with the other iris featues. Plot 6 below reaffirms these findings[F9*].
 
 <br/>
 
@@ -371,7 +371,7 @@ It was also noted that the sepal width feature was predominantly present in the 
 
 <br/>
 
-For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features used to train the model [F10*]. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_split_test* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
+For the last part of this project the KNN model was expored in more detail in a similar fashion to Sanjay, M 2018. Interestingly he explored different k parameters being fed into the KNN algorigthm (via a for loop). This method was applied to the iris datset with all of its features used to train the model [F10*]. The data was split into two parts (20:80) for model testing and training respectively. This functionality is possible using the *train_test_split* method of the *sklearn* library and allows one to estimate the performance of a model when it makes predictions on datasets that are not used to train the model. See plot 7 for output.
 
 <br/>
 
@@ -379,53 +379,60 @@ For the last part of this project the KNN model was expored in more detail in a 
 
  <br/>
 
- Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation. Considering KNN does not have any underlying data assumptions like that of Linear Discrimant Analysis or indeed many other algorithms, it clearly can have good applications in machine learning.
+ Based on the results from Plot 7 the KNN loop yielded the highest accuracy at k = 4 and K = 6 to K = 25. This ability to predict species to 100% accuracy is impressive considering the feature overlap observed throughout this investigation.
 
 <br/>
 
 ### 4. Discussion
 **4.1 Summary** <br/>
 
-The key obserbations made during this investigation are listed below:
+The following findings were established during this investigation:
 - Data Distribtion
-  - Petal width data as a whole yielded most overlap, while sepal width yielded least (i.e better seperation).
   - On the species level all features have a nomral distriubtion.
-  - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset.
+  - Petal width data as a whole yielded most overlap, while sepal width yielded the least (i.e better seperation).
+  - The petal width data of Setosa species is the only cluster that has full seperation in the iris dataset, however this varaible is correlated to others.
 
 - Correlated variables (Perasons method):
-  - Petal length Vs. petal width:   high positive correlation (0.96).
-  - Sepal length Vs. sepal width:   low negative correlation (-0.11).
-  - Petal length Vs. sepal length:  high positive correlation (0.87).
-  - Petal width  Vs. sepal length:  high positive correlation (0.82).  
-  - Three high levels of pariwrise positive correlation exists.
-  - Multicolinnearity exists in the dataset as sepal length is highly correlated to petal length and petal width.
+  1. Petal length Vs. petal width: high positive correlation (0.96).
+  2. Petal length Vs. sepal length: high positive correlation (0.87).
+  3. Petal width  Vs. sepal length: high positive correlation (0.82).  
+  - There are three high levels of pairwise positive correlation that exists in the dataset. Multicollinearity exists in the dataset as sepal length is highly correlated to petal length and petal width.
+   <br/>
 
+  
 - Machine Learning 
   - Altought computationally heavy, the Exhaustive Feature Selector (EHS) is a useful wrapper method for checking model performance across all possible combinations of features in the dataset.
   - Using EHS the The k-nearest neighbors (KNN) model showed that correlation had a negative effect on model accuracy for the iris dataset.
   - On a full dataset (no features dropped) the KNN model has highest model accuracy at k = 4 and K = 6 to K = 25 when using the train-test-split method.
-
-
-
-
-
-
-
-
-
-
-
-
+   
+   <br/>
 
 **4.2 Lessons Learning** <br/>
-Before project
 
-Key takeways
-What I have 
-This project
+Throughtout the course of this Project I learned a considerable amount about Python, its libraries and also how to deduce information from plots. Python and its libraries are extremely useful tools for reading /writing information and making informative plots. 
+
+<br/>
+
+The points below describe what insights were drawn from using the Python libraries:
+- pandas
+  - Ability to read and write to different file types.
+  - Has useful functions for summarising data.
+  - Can convert data into dataframe for further use (2d array).
+  - Ability to manipulate and clean data (can be used alongside numPy).
 
 
+- numPy
+  - Can work in synch with other libraries / fuctions such as pandas to e.g clean a dataframe.
+  - Considerably faster than looping over an array.
+  - Can generate multi-dimensional arrays that are accepted by Machine learning algorithms.
 
+- Matplotlib/seaborn
+  - Both libraries can work together and create useful plots. Seaborn has a higher level interface with useful functions that can for example seperate the iris histogram into species (hue=species).
+
+- sklearn
+  - Powerful Machine Learning library that can run built in statistical models and provice tools for dataset dimensionality reduction.
+
+<br/>
 
 
 ### 5. Reference:

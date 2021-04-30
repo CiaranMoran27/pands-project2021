@@ -6,22 +6,20 @@
 
 #[F2*]: *Summary* Class 
         # creates summary values for the .txt file
-
-        #[F3*]: write_function()
-        # instance method of Class that writes object to summary_file.txt
+            #[F3*]: write_function()
+            # instance method of Class that writes object to summary_file.txt
 
 #[F4*]: plot_histograms_multi()
-        # writes 8 histograms plots (2 figures) to Images Folder
+        # writes 8 histograms plots (2 x .png files) to Images Folder
 
 #[F5*]: plot_boxplot()
         # writes 1 boxplot to Images Folder
 
 #[F6*]: scatter_plot()
-        # writes 6 scatter plots (1 figure) to Images Folder
+        # writes 6 scatter plots (1 x .png file) to Images Folder
 
 
 import pandas as pd
-import numpy as np
 import seaborn as sns
 from matplotlib import patches as mpatches
 import matplotlib.pyplot as plt
@@ -42,8 +40,9 @@ iris_df = read_iris_dataset()                                                   
 
 
 #[F2*]
-#Summary class which creates summary values for the .txt file and implements 
-# a write function using the classes values
+# Summary class which creates summary values for the .txt file and implements a write function using the classes values
+# This is overkill for a 1x write application but it was exciting to learn as I can see good scalability
+# using this method ->>> ideally the class would be placed in a seperate file and called when needed.
 class Summary:  
     # constructor __init__ method:
         # called when object is Instantiated
